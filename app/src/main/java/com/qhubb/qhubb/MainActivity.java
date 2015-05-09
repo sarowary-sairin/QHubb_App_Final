@@ -427,6 +427,7 @@ public class MainActivity extends Activity {
 
         for (Status s : statuses) {
             timeArray.add(sdf.format(s.getCreatedAt()));
+            descriptionArray.add(s.getUser().getScreenName() + " : " + s.getText());
         }
 
         Intent twitterView = new Intent(getApplicationContext(), ViewTwitterActivity.class);
