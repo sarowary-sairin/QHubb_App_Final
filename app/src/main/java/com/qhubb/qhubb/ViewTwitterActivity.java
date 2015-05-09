@@ -102,7 +102,6 @@ public class ViewTwitterActivity extends Activity {
 	        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3]));
 
 	        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4]));
-            navDrawerItems.add(new NavDrawerItem(navMenuTitles[5]));
 	
 	    	mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 			// setting the nav drawer list adapter
@@ -206,13 +205,10 @@ public class ViewTwitterActivity extends Activity {
 			case 2:
 				fragment = new Timelines();
 				break;
-            case 3:
-                fragment = new Timelines2();
-                break;
-			case 4:
+			case 3:
 				fragment = new QueuePostthroutfragment();
 				break;
-			case 5:
+			case 4:
 				fragment = new Searchthroughfragment();
 				break;
 			
