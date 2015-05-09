@@ -32,7 +32,7 @@ public class DeleteEditQueue extends Activity {
 	static String PREFERENCE_NAME = "twitter_oauth";
 	static final String PREF_KEY_OAUTH_TOKEN = "oauth_token";
 	static final String PREF_KEY_OAUTH_SECRET = "oauth_token_secret";
-	static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLogedIn";
+	static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLoggedIn";
 	private static SharedPreferences mSharedPreferences;
 	String statuss;
 	 @Override
