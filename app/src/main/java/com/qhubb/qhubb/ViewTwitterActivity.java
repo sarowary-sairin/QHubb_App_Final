@@ -200,7 +200,7 @@ public class ViewTwitterActivity extends Activity {
 				fragment = new Welcomepage();
 				break;
 			case 1:
-				fragment = new Tweetthrougfragment();
+				fragment = new Tweetthroughfragment();
 				break;
 			case 2:
 				fragment = new Timelines();
