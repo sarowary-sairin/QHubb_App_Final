@@ -90,8 +90,8 @@ public class QueuePostthroughfragment extends Fragment {
                 if(month<(c.get(Calendar.MONTH)+1))
                 {
                     db.deleteQueue(cn.getId());
-                    statuss=cn.getstutus();
-                    new updateTwitterStatus().execute(statuss);
+                    status=cn.getstutus();
+                    new updateTwitterStatus().execute(status);
                     Toast.makeText(getActivity().getApplicationContext(), "queue posted", Toast.LENGTH_SHORT).show();
                     MainActivity.accessTokenKey=null;
                     MainActivity.accessTokenKeySecret=null;
@@ -106,8 +106,8 @@ public class QueuePostthroughfragment extends Fragment {
                             if(mint<=c.get(Calendar.MINUTE))
                             {
                                 db.deleteQueue(cn.getId());
-                                statuss=cn.getstutus();
-                                new updateTwitterStatus().execute(statuss);
+                                status=cn.getstutus();
+                                new updateTwitterStatus().execute(status);
                                 Toast.makeText(getActivity().getApplicationContext(), "queue posted complete date", Toast.LENGTH_SHORT).show();
                                 MainActivity.accessTokenKey=null;
                                 MainActivity.accessTokenKeySecret=null;
