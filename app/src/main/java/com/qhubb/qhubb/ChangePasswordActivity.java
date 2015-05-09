@@ -148,7 +148,7 @@ public class ChangePasswordActivity extends Activity {
                         textChangePasswordMessage.setText("Invalid old Password.");
                     } else {
                         pDialog.dismiss();
-                        textChangePasswordMessage.setText("Error occured in changing Password.");
+                        textChangePasswordMessage.setText("Error occurred in changing Password.");
                     }
                 }
             } catch (JSONException e) {
