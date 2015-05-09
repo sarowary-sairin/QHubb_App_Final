@@ -206,7 +206,7 @@ public class ViewTwitterActivity extends Activity {
 				fragment = new Timelines();
 				break;
 			case 3:
-				fragment = new QueuePostthroutfragment();
+				fragment = new QueuePostthroughfragment();
 				break;
 			case 4:
 				fragment = new Searchthroughfragment();
