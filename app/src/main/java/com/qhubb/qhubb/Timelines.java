@@ -37,7 +37,7 @@ public class Timelines extends Fragment {
         try {
         	  timeArray = (String[]) getActivity().getIntent().getSerializableExtra("timeArray");
               String[] descriptionArray = (String[]) getActivity().getIntent().getSerializableExtra("descriptionArray");
-              Toast.makeText(getActivity().getApplicationContext(), ""+Tweetthrougfragment.tweet, Toast.LENGTH_LONG).show();
+              Toast.makeText(getActivity().getApplicationContext(), ""+Tweetthroughfragment.tweet, Toast.LENGTH_LONG).show();
 
               
               details = new ArrayList<MessageDetails>();
