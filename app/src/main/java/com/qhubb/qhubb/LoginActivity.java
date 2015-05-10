@@ -109,7 +109,7 @@ public class LoginActivity extends Activity {
             password = txtPassword.getText().toString();
             pDialog = new ProgressDialog(LoginActivity.this);
             pDialog.setTitle("QHubb");
-            pDialog.setMessage("...");
+            pDialog.setMessage("Attempting to Login");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();

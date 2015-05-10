@@ -292,7 +292,7 @@ public class MainActivity extends Activity {
 
             pDialog = new ProgressDialog(MainActivity.this);
             pDialog.setTitle("QHubb");
-            pDialog.setMessage("...");
+            pDialog.setMessage("Logging in to qHubb");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();
