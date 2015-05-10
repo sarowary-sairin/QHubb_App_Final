@@ -14,56 +14,74 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:padding="10dp"
+        android:padding="2dp"
         >
+        <!-- Uncomment this Imageview to include the qhubb logo
+         <ImageView
+             android:layout_width="192.675dp"
+             android:layout_height="150dp"
+             android:background="@drawable/qhubb_logo"
+             android:layout_gravity="center"/>
+         -->
+        <!-- what is "textLoginMessage"??? it's wasting space that i need to use -->
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="56dp"
             android:id="@+id/textLoginMessage"
             android:textColor="#000000"/>
-
         <EditText
             android:id="@+id/txtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_margin="4dp"
             android:padding="10dp"
             android:hint="Email"
             android:text=""
-            android:textColorHint="#bbbbbb"/>
+            android:textColor="@color/White"
+            android:background="@drawable/email_address_container"
+            android:layout_gravity="center"
+            android:textColorHint="#bbbbbb"
+            android:singleLine="true"/>
         <EditText
             android:id="@+id/txtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-2dp"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_margin="4dp"
             android:padding="10dp"
+            android:background="@drawable/password_container"
             android:hint="Password"
             android:text=""
+            android:textColor="@color/White"
             android:textColorHint="#bbbbbb"
-            android:password="true"/>
+            android:layout_gravity="center"
+            android:password="true"
+            android:singleLine="true"/>
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
             android:padding="10dp"
             android:layout_margin="4dp"
-            android:text="Log in"
+            android:layout_gravity="center"
+            android:background="@drawable/log_in_button"
             />
         <Button
             android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
             android:padding="10dp"
             android:layout_margin="4dp"
-            android:text="Register"
+            android:layout_gravity="center"
+            android:background="@drawable/register_button"
             />
         <Button
             android:id="@+id/btnForgotPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
             android:padding="10dp"
             android:layout_margin="4dp"
-            android:text="Forgot Password"
+            android:layout_gravity="center"
+            android:background="@drawable/forgot_password_button"
             />
     </LinearLayout>
-
 </RelativeLayout>

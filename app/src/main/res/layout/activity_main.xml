@@ -26,46 +26,50 @@
             android:layout_width="fill_parent"
             android:gravity="center"
             android:layout_height="wrap_content" />
-
         <Button
             android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
             android:padding="10dp"
             android:layout_margin="4dp"
-            android:text="Log out"
+            android:background="@drawable/log_out_button"
             />
         <Button
             android:id="@+id/btnChangePassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
             android:padding="10dp"
             android:layout_margin="4dp"
-            android:text="Change Password"
+            android:background="@drawable/change_password_button"
             />
         <Button
             android:id="@+id/btnDeactivate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
             android:padding="10dp"
             android:layout_margin="4dp"
-            android:text="Deactivate Account"
+            android:background="@drawable/deactivate_button"
             />
         <Button
             android:id="@+id/btnTwitter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
             android:padding="10dp"
             android:layout_margin="4dp"
-            android:text="Twitter"
+            android:background="@drawable/log_in_twitter_button"
             />
         <Button
             android:id="@+id/btnTwitterLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
             android:padding="10dp"
             android:layout_margin="4dp"
-            android:text="Log out Twitter"
+            android:background="@drawable/log_out_twitter_button"
             />
     </LinearLayout>
 </RelativeLayout>

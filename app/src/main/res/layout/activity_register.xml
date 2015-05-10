@@ -16,6 +16,7 @@
         android:layout_centerInParent="true"
         android:padding="10dp"
         >
+        <!-- what is textRegisterMessage?? taking up space. can we change it to an invisible frame/overlay? -->
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="56dp"
@@ -23,50 +24,72 @@
             android:textColor="#000000"/>
         <EditText
             android:id="@+id/txtFirstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:background="@drawable/password_container"
+            android:layout_gravity="center"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
             android:padding="10dp"
+            android:layout_margin="5dp"
             android:hint="First Name"
-            android:textColorHint="#bbbbbb"/>
+            android:textColor="@color/White"
+            android:textColorHint="#bbbbbb"
+            android:singleLine="true"/>
         <EditText
             android:id="@+id/txtLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:background="@drawable/password_container"
+            android:layout_gravity="center"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
             android:padding="10dp"
+            android:layout_margin="5dp"
             android:hint="Last Name"
-            android:textColorHint="#bbbbbb"/>
+            android:textColor="@color/White"
+            android:textColorHint="#bbbbbb"
+            android:singleLine="true"/>
         <EditText
             android:id="@+id/txtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:background="@drawable/password_container"
+            android:layout_gravity="center"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
             android:padding="10dp"
+            android:layout_margin="5dp"
             android:hint="Email"
-            android:textColorHint="#bbbbbb"/>
+            android:textColor="@color/White"
+            android:textColorHint="#bbbbbb"
+            android:singleLine="true"/>
         <EditText
             android:id="@+id/txtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-2dp"
+            android:background="@drawable/password_container"
+            android:layout_gravity="center"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_margin="5dp"
             android:padding="10dp"
+            android:textColor="@color/White"
             android:hint="Password"
             android:textColorHint="#bbbbbb"
-            android:password="true"/>
+            android:password="true"
+            android:singleLine="true"/>
         <Button
             android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
             android:padding="10dp"
-            android:layout_margin="4dp"
-            android:text="Register"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/register_button"
             />
         <Button
             android:id="@+id/btnRegisterBack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:padding="10dp"
-            android:layout_margin="4dp"
-            android:text="Back"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/back_button"
             />
     </LinearLayout>
+
 
 </RelativeLayout>
