@@ -9,26 +9,23 @@
     android:paddingBottom="16dp"
     tools:context=".LoginActivity">
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/textLoginMessage"
+        android:textColor="#000000"/>
+
     <LinearLayout
+        android:id="@+id/buttons_layout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:padding="2dp"
+        android:layout_alignParentBottom="true"
         >
-        <!-- Uncomment this Imageview to include the qhubb logo
-         <ImageView
-             android:layout_width="192.675dp"
-             android:layout_height="150dp"
-             android:background="@drawable/qhubb_logo"
-             android:layout_gravity="center"/>
-         -->
-        <!-- what is "textLoginMessage"??? it's wasting space that i need to use -->
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="56dp"
-            android:id="@+id/textLoginMessage"
-            android:textColor="#000000"/>
+
         <EditText
             android:id="@+id/txtEmail"
             android:layout_width="231dp"
@@ -84,4 +81,12 @@
             android:background="@drawable/forgot_password_button"
             />
     </LinearLayout>
+
+    <ImageView android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/qhubb_logo"
+        android:layout_above="@id/buttons_layout"/>
+
+
 </RelativeLayout>
