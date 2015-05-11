@@ -2,56 +2,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-   
-    >
+    android:padding="10dp">
     
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/compose_button"/>
 
    <TextView android:id="@+id/words"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="Newsfeed"
-       android:textColor="@color/Black"
-       android:textSize="50sp"
-       />
+       android:textColor="@color/White"
+       android:textSize="42sp"
+       android:layout_centerHorizontal="true" />
 
-<!--How do we make this more then 4 items?
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circle_profile_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+
+<!--How do we make this more then 4 items?-->
   <ListView
       android:id="@+id/MessageList"
       android:layout_width="match_parent"
       android:layout_height="250dp"
       android:layout_below="@id/words" >
   </ListView>
-    -->
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="239.2dp"
+        android:layout_height="45dp"
         android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true" >
 
-
-        <Button android:id="@+id/Feed"
+        <Button
+            android:id="@+id/Feed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginRight="8dp"
             android:background="@drawable/feed_toggle_on_default"
             android:layout_alignTop="@+id/Mentions"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-    <Button android:id="@+id/Messages"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/messages_toggle_off"
-        android:layout_alignTop="@+id/relativeLayout"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <Button android:id="@+id/Mentions"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/mentions_toggle_off"/>
+        <Button
+            android:id="@+id/Mentions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/mentions_toggle_off"/>
+
+        <!-- TO BE INCLUDED IN A FUTURE ITERATION
+        <Button android:id="@+id/Messages"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/messages_toggle_off"
+            android:layout_alignTop="@+id/relativeLayout"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+            -->
 
     </LinearLayout>
   </RelativeLayout>
