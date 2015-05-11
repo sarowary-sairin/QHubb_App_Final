@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:padding="10dp">
+    android:padding="12dp">
     
 
     <Button
@@ -26,16 +26,8 @@
         android:layout_alignParentEnd="true"/>
 
 
-<!--How do we make this more then 4 items?-->
-  <ListView
-      android:id="@+id/MessageList"
-      android:layout_width="match_parent"
-      android:layout_height="250dp"
-      android:layout_marginTop="8dp"
-      android:layout_below="@id/text_timeline" >
-  </ListView>
-
     <LinearLayout
+        android:id="@+id/fmToggles"
         android:layout_width="239.2dp"
         android:layout_height="45dp"
         android:orientation="horizontal"
@@ -73,4 +65,14 @@
             -->
 
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/MessageList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@id/text_timeline"
+        android:layout_above="@id/fmToggles">
+    </ListView>
   </RelativeLayout>
