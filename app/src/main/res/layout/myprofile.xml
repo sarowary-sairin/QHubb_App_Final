@@ -9,4 +9,22 @@
     android:paddingBottom="10dp"
     tools:context="com.qhubb.qhubb.MainActivity">
 
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/newsfeed_button"
+        />
+    <ImageView
+        android:layout_width="171dp"
+        android:layout_height="50dp"
+        android:background="@drawable/text_my_profile"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/settings_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
