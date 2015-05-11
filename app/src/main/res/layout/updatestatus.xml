@@ -9,36 +9,17 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="170dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="78dp"
-        android:background="@drawable/composition_field"
-        android:ems="10"
-        android:hint="Update Status"
-        android:inputType="textPersonName" >
-
-        <requestFocus />
-    </EditText>
-
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.10"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
         android:background="@drawable/text_compose"
-        android:layout_alignBaseline="@+id/cancel_button"
         android:layout_alignBottom="@+id/cancel_button"
         android:layout_centerHorizontal="true"/>
     <Button
         android:id="@+id/button1"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@drawable/publish_button_on"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -46,52 +27,61 @@
 
     <Button
         android:id="@+id/cancel_button"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@drawable/cancel_button"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/composition_field"
+        android:ems="10"
+        android:hint=" What's happening?"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="257dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/editText1">
 
 
         <Button
             android:id="@+id/FB"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight = "0.8"
+            android:layout_width="67.62dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/facebook_toggle_off_comp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_gravity="center_vertical" />
 
         <Button
             android:id="@+id/Twitter"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight = "0.8"
+            android:layout_width="82.6dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/twitter_toggle_on_comp"
-            android:layout_toRightOf="@id/FB"
-            android:layout_toEndOf="@id/FB"
             android:layout_gravity="center_vertical" />
 
         <Button
             android:id="@+id/queue_button"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight = "0.8"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:background="@drawable/queue_toggle_off"
-            android:layout_alignTop="@id/Twitter"
-            android:layout_toLeftOf="@+id/Photo"
-            android:layout_toStartOf="@+id/Photo"
             android:layout_gravity="center_vertical" />
 
     </LinearLayout>

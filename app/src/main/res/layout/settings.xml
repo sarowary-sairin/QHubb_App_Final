@@ -16,7 +16,7 @@
         />
     <ImageView
         android:id="@+id/text_settings"
-        android:layout_width="150dp"
+        android:layout_width="155dp"
         android:layout_height="50dp"
         android:background="@drawable/text_settings"
         android:layout_centerHorizontal="true"/>
