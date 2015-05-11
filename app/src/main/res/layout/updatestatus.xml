@@ -26,7 +26,7 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:id="@+id/cancel_button"
+        android:id="@+id/btnCancel"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/cancel_button"
@@ -43,6 +43,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="65dp"
         android:background="@drawable/composition_field"
+        android:textColor="@color/White"
+        android:singleLine="false"
         android:ems="10"
         android:hint=" What's happening?"
         android:inputType="textPersonName" >

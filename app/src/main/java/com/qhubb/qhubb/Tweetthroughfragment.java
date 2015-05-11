@@ -45,6 +45,7 @@ public class Tweetthroughfragment extends Fragment {
 
     public Tweetthroughfragment(){}
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class Tweetthroughfragment extends Fragment {
         View rootView = inflater.inflate(R.layout.updatestatus, container, false);
 
         Button update=(Button) rootView.findViewById(R.id.button1);
+        Button btnCancel=(Button) rootView.findViewById(R.id.btnCancel);
         statuss=(EditText) rootView.findViewById(R.id.editText1);
         final TextView welcome=(TextView) rootView.findViewById(R.id.textView1);
         welcome.setText("Welcome to "+MainActivity.username);
@@ -63,6 +65,12 @@ public class Tweetthroughfragment extends Fragment {
                 status=statuss.getText().toString();
                 new updateTwitterStatus().execute(status);
 
+            }
+        });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(),ViewTwitterActivity.class);
+                startActivityForResult(myIntent, 0);
             }
         });
         return rootView;
@@ -126,10 +134,8 @@ public class Tweetthroughfragment extends Fragment {
 
         }
     }
-    public void onBackPressed() {
-        startActivity(new Intent(getActivity().getApplicationContext(),ViewTwitterActivity.class));
 
-    }
+
     public void postqueue()
     {
         DatabaseHandler db;
