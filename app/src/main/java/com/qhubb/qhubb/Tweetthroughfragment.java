@@ -56,7 +56,9 @@ public class Tweetthroughfragment extends Fragment {
         Button btnCancel=(Button) rootView.findViewById(R.id.btnCancel);
         statuss=(EditText) rootView.findViewById(R.id.editText1);
         final TextView welcome=(TextView) rootView.findViewById(R.id.textView1);
-        welcome.setText("Welcome to "+MainActivity.username);
+        /** What is this??? Do i need to erase the above line too?
+         * welcome.setText("Welcome to "+MainActivity.username);
+         * **/
         mSharedPreferences = getActivity().getApplicationContext().getSharedPreferences(
                 "MyPref", 0);
         update.setOnClickListener(new View.OnClickListener() {
