@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-async-4.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73a79e87714fb908a0991d601ae1fafc30e2040f">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-async-4.0.1-a31d942d6e931f66e56f169f1a6b0f7800a4f7ac.jar" />
+    </item>
+    <item
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-media-support-4.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a21e2ba0955c95cad4870f24a826bb36e5792625">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-media-support-4.0.1-085d61a811ce6ae2f64cef9f9a0d53d110fdc961.jar" />
+    </item>
+    <item
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\android-support-v4-977d05c6666593a7ff08da60869c4925e52ba549.jar" />
+    </item>
+    <item
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-core-4.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="34138fe734b03ae6e9ef978b41359b5fb6467047">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-core-4.0.1-1ed50a15aec4aad71b106a2886718d16a6247586.jar" />
+    </item>
+    <item
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-examples-4.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f061ef54a644a2e15d9dccf8190cd61044b8ae16">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-examples-4.0.1-8a4501f7f55d0c434eb95dcf910062d7426d3b4c.jar" />
+    </item>
+    <item
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-stream-4.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="bef35fbc1ed96dbe0670418e92412b4ca0c36576">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-stream-4.0.1-88aaad640523f9f16f00fe1c4475ddc88dcabcf4.jar" />
+    </item>
+
+</items>
