@@ -55,6 +55,7 @@
             android:background="@drawable/log_out_twitter_button"
             />
         <ImageView
+            android:layout_marginTop="12dp"
             android:layout_width="231dp"
             android:layout_height="42dp"
             android:layout_gravity="center"
