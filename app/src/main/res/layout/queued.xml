@@ -10,8 +10,9 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="Newsfeed"
-       android:textColor="@color/Black"
-       android:textSize="50sp"
+       android:textColor="@color/White"
+       android:textSize="45sp"
+       android:layout_centerHorizontal="true"
        />
 
 <!--How do we make this more then 4 items?
@@ -38,6 +39,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
+
+        <!-- TO BE INCLUDED IN A FUTURE ITERATION
     <Button android:id="@+id/Messages"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -46,6 +49,7 @@
         android:layout_alignTop="@+id/relativeLayout"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+        -->
 
     <Button android:id="@+id/Mentions"
         android:layout_width="0dp"
