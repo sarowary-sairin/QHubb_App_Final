@@ -8,7 +8,7 @@
     <string name="login_success">Logged in successfully.</string>
     <string name="title_activity_change_password">ChangePasswordActivity</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="whats_happening">What\'s happening?</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
     <string name="title_activity_web_view">WebViewActivity</string>
