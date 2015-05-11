@@ -9,4 +9,49 @@
     android:paddingBottom="10dp"
     tools:context="com.qhubb.qhubb.MainActivity">
 
+    <!--This button should take you back to the newsfeed
+    newfeed meaning the combined twitter/facebook feed
+    that is depicted in design proposals-->
+    <Button
+        android:id="@+id/newsfeed_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/newsfeed_button"/>
+
+    <ImageView
+        android:id="@+id/text_my_profile"
+        android:layout_width="171dp"
+        android:layout_height="50dp"
+        android:background="@drawable/text_my_profile"
+        android:layout_centerHorizontal="true"/>
+
+    <!--This button should take users to settings.xml-->
+    <Button
+        android:id="@+id/settings_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/settings_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/text_my_profile">
+
+        <!--This box will eventually display statistics
+         you'll be able to swipe through stats, so it obviously
+         won't just be "imageview"-->
+        <ImageView
+            android:id="@+id/stat_box"
+            android:layout_width="325dp"
+            android:layout_height="154dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/stat_box"/>
+
+    </LinearLayout>
+
 </RelativeLayout>
