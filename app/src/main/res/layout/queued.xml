@@ -10,13 +10,12 @@
         android:layout_height="50dp"
         android:background="@drawable/compose_button"/>
 
-   <TextView android:id="@+id/words"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Newsfeed"
-       android:textColor="@color/White"
-       android:textSize="42sp"
-       android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/text_timeline"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:background="@drawable/text_timeline"
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:layout_width="50dp"
@@ -32,7 +31,8 @@
       android:id="@+id/MessageList"
       android:layout_width="match_parent"
       android:layout_height="250dp"
-      android:layout_below="@id/words" >
+      android:layout_marginTop="8dp"
+      android:layout_below="@id/text_timeline" >
   </ListView>
 
     <LinearLayout
