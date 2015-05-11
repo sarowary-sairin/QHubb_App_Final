@@ -37,7 +37,9 @@
         android:layout_marginTop="17dp"
         android:layout_below="@+id/text_my_profile">
 
-        <!--This box will eventually display statistics -->
+        <!--This box will eventually display statistics
+         you'll be able to swipe through stats, so it obviously
+         won't just be "imageview"-->
         <ImageView
             android:id="@+id/stat_box"
             android:layout_width="325dp"
