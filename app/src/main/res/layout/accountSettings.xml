@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    tools:context="com.qhubb.qhubb.MainActivity">
+
+    <!--This button should take users back to myProfile.xml-->
+    <Button
+        android:background="@drawable/back_button"
+        android:layout_height="50dp"
+        android:layout_width="50dp"/>
+
+    <ImageView
+        android:id="@+id/text_settings"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:background="@drawable/text_settings"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:layout_width="231dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:background="@drawable/text_social_media"
+            />
+
+        <Button
+            android:id="@+id/btnTwitter"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/log_in_twitter_button"
+            />
+        <Button
+            android:id="@+id/btnTwitterLogout"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/log_out_twitter_button"
+            />
+        <ImageView
+            android:layout_marginTop="12dp"
+            android:layout_width="231dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:background="@drawable/text_qhubb_account"
+            />
+        <Button
+            android:id="@+id/btnChangePassword"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/change_password_button"
+            />
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/log_out_button"
+            />
+        <Button
+            android:id="@+id/btnDeactivate"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/deactivate_button"
+            />
+
+    </LinearLayout>
+</RelativeLayout>
