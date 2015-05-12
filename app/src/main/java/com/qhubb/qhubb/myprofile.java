@@ -1,7 +1,16 @@
 package com.qhubb.qhubb;
 
 /**
- * Created by jonathanalinovi on 5/11/15.
+ * Created by Jonathan Alinovi
+ * This activity allows users to view the contents of their OWN social media profiles, access
+ * accountSettings, and view statistical information.
+ *
+ * At the top of the screen, users are able to see a statistical measure of their social media
+ * "success".
+ *
+ * Users are able to scroll through an aggregated "feed" of THEIR tweets and facebook posts.
+ * Users can tap on facebook posts to view comments that post received.
+ * Users can tap on tweets to view replies that tweet received.
  */
 
 
@@ -12,18 +21,17 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class myprofile extends Activity {
+public class myProfile extends Activity {
     private Button newsfeed_button;
-    private Button settings_button;
-
+    private Button accountSettings_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.myprofile);
+        setContentView(R.layout.myProfile);
 
         newsfeed_button = (Button) findViewById(R.id.newsfeed_button);
-        settings_button = (Button) findViewById(R.id.settings_button);
+        accountSettings_button = (Button) findViewById(R.id.settings_button);
 
 
         newsfeed_button.setOnClickListener(new View.OnClickListener() {
@@ -35,9 +43,9 @@ public class myprofile extends Activity {
             }
         });
 
-        settings_button.setOnClickListener(new View.OnClickListener() {
+        accountSettings_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent=new Intent(view.getContext(), settingsscreen.class);
+                Intent myIntent=new Intent(view.getContext(), accountSettings.class);
                 startActivityForResult(myIntent, 0);
                 finish();
 

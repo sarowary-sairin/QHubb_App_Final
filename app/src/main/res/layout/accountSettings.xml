@@ -6,7 +6,7 @@
     android:padding="12dp"
     tools:context="com.qhubb.qhubb.MainActivity">
 
-    <!--This button should take users back to myprofile.xml-->
+    <!--This button should take users back to myProfile.xml-->
     <Button
         android:background="@drawable/back_button"
         android:layout_height="50dp"

@@ -7,7 +7,7 @@
     tools:context="com.qhubb.qhubb.MainActivity">
 
     <!--This button should take you back to the newsfeed
-    newfeed meaning the combined twitter/facebook feed
+    newsfeed meaning the combined twitter/facebook feed
     that is depicted in design proposals-->
     <Button
         android:id="@+id/newsfeed_button"
@@ -22,7 +22,7 @@
         android:background="@drawable/text_my_profile"
         android:layout_centerHorizontal="true"/>
 
-    <!--This button should take users to settings.xml-->
+    <!--This button should take users to accountSettings.xml-->
     <Button
         android:id="@+id/settings_button"
         android:layout_width="50dp"
