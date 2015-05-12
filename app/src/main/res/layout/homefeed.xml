@@ -1,0 +1,81 @@
+<!--CLONE OF QUEUED.XML FOR THE TIME BEING-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="12dp">
+
+
+    <Button
+        android:id="@+id/composePost_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/compose_button"/>
+
+    <ImageView
+        android:id="@+id/text_timeline"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:background="@drawable/text_timeline"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/myProfile_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circle_profile_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="goToProfile"/>
+
+
+    <LinearLayout
+        android:id="@+id/fmToggles"
+        android:layout_width="239.2dp"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/Feed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/feed_toggle_on_default"
+            style="@android:style/ButtonBar"/>
+
+
+        <Button
+            android:id="@+id/Mentions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/mentions_toggle_off"
+            style="@android:style/ButtonBar"/>
+
+        <!-- TO BE INCLUDED IN A FUTURE ITERATION
+        <Button android:id="@+id/Messages"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/messages_toggle_off"
+            android:layout_alignTop="@+id/relativeLayout"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+            -->
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/MessageList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@id/text_timeline"
+        android:layout_above="@id/fmToggles">
+    </ListView>
+</RelativeLayout>
