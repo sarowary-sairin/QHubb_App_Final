@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -30,8 +31,26 @@ public class Timelines extends Fragment {
  
         View rootView = inflater.inflate(R.layout.queued, container, false);
         msgList = (ListView) rootView.findViewById(R.id.MessageList);
-         postqueue();
+		Button myProfile_button =(Button) rootView.findViewById(R.id.myProfile_button);
+		Button composePost_button =(Button) rootView.findViewById(R.id.composePost_button);
+		postqueue();
         ConfigurationBuilder builder = new ConfigurationBuilder();
+
+		myProfile_button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				/*NEED TO CHANGE THIS TO DIRECT TO THE PROPER SCREEN, NOT VIEWTWITTERACTIVITY*/
+				Intent myIntent = new Intent(view.getContext(), ViewTwitterActivity.class);
+				startActivityForResult(myIntent, 0);
+			}
+		});
+
+		composePost_button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				/*NEED TO CHANGE THIS TO DIRECT TO THE PROPER SCREEN, NOT VIEWTWITTERACTIVITY*/
+				Intent myIntent = new Intent(view.getContext(), ViewTwitterActivity.class);
+				startActivityForResult(myIntent, 0);
+			}
+		});
 
         try {
         	  timeArray = (String[]) getActivity().getIntent().getSerializableExtra("timeArray");
