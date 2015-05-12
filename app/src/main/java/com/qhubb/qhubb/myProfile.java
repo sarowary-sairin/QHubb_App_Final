@@ -3,7 +3,7 @@ package com.qhubb.qhubb;
 /**
  * Created by Jonathan Alinovi
  * This activity allows users to view the contents of their OWN social media profiles, access
- * accountSettings, and view statistical information.
+ * accountsettings, and view statistical information.
  *
  * At the top of the screen, users are able to see a statistical measure of their social media
  * "success".
@@ -28,10 +28,10 @@ public class myProfile extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.myProfile);
+        setContentView(R.layout.myprofile);
 
         newsfeed_button = (Button) findViewById(R.id.newsfeed_button);
-        accountSettings_button = (Button) findViewById(R.id.settings_button);
+        accountSettings_button = (Button) findViewById(R.id.accountSettings_button);
 
 
         newsfeed_button.setOnClickListener(new View.OnClickListener() {
