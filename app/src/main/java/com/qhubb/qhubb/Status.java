@@ -1,9 +1,17 @@
 package com.qhubb.qhubb;
 
+
+/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
+
 public class Status {
+
+	/* What is "user"?*/
 	String user;
+	/* What is "name"?*/
 	String name;
+	/* What does "text" refer to?*/
 	String text;
+	/* What is "date" for?*/
 	String date;
 	public String getUser() {
 		return user;

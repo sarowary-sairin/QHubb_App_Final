@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
+
 public class MyCustomBaseAdapter extends BaseAdapter {
 	private static ArrayList<AdatpterValues> searchArrayList;
 	

@@ -16,7 +16,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class Timelines extends Fragment {
-	
 
 
 	public static String[] timeArray;

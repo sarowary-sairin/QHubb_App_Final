@@ -25,6 +25,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+
+/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
+
 public class Searchthroughfragment extends Fragment {
 	
 	static String PREFERENCE_NAME = "twitter_oauth";

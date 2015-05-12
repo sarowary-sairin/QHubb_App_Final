@@ -24,6 +24,9 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
+
+/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
+
 public class QueuePostthroughfragment extends Fragment {
     DatabaseHandler db;
     ArrayList<AdatpterValues> queue;

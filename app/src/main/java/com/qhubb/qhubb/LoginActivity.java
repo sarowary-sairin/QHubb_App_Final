@@ -89,11 +89,13 @@ public class LoginActivity extends Activity {
             }});
     }
 
+    /*What does this code do????*/
     public void execute(View view){
         new ActivityTask(this, (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE),
                 textLoginMessage, new ProcessLogin()).execute();
     }
 
+    /*What does this class do????*/
     private class ProcessLogin extends AsyncTask<String, String, JSONObject> {
 
 

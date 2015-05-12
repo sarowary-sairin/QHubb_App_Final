@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
+/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
+
 public class QueuedPost extends Fragment {
 	
 	public QueuedPost(){}

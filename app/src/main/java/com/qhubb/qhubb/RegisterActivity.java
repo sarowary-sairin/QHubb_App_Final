@@ -28,6 +28,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
+/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
+
 public class RegisterActivity extends Activity {
 
     private EditText txtFirstName;
