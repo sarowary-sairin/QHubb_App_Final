@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:background="@drawable/text_compose"
+        android:layout_alignBottom="@+id/btnCancel"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/publish_button_on"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/cancel_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <FrameLayout
+        android:id="@+id/compose_window"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="56dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:background="@drawable/composition_field"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_margin="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:gravity="top|left"
+                android:ems="10"
+                android:textColor="@color/White"
+                android:background="#00000000"
+                android:hint="@string/whats_happening"
+                android:inputType="textPersonName|textMultiLine"
+                android:scrollHorizontally="false">
+                <requestFocus />
+            </EditText>
+        </RelativeLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="348dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="6dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/compose_window">
+
+
+        <Button
+            android:id="@+id/FB"
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/facebook_toggle_off_comp"
+            android:layout_gravity="center_vertical" />
+
+        <Button
+            android:id="@+id/Twitter"
+            android:layout_width="59dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/twitter_toggle_on_comp"
+            android:layout_gravity="center_vertical" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/queue_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/queue_toggle_off"
+            android:layout_gravity="end" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

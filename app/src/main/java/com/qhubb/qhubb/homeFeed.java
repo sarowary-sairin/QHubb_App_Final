@@ -1,10 +1,5 @@
 package com.qhubb.qhubb;
 
-/**
- * Created by jonathanalinovi on 5/12/15.
- * Recoding "Timelines.java" and "queued.xml"...
- */
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -21,6 +16,10 @@ import android.widget.Toast;
 import android.app.Activity;
 
 
+/**
+ * Created by jonathanalinovi on 5/12/15.
+ * Recoding "Timelines.java" and "queued.xml"...
+ */
 
 public class homeFeed extends Activity {
     public static String[] timeArray;
@@ -51,7 +50,7 @@ public class homeFeed extends Activity {
 
         composePost_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), Tweetthroughfragment.class);
+                Intent myIntent = new Intent(view.getContext(), composePost.class);
                 startActivityForResult(myIntent, 0);
                 finish();
 
