@@ -6,6 +6,7 @@
     
 
     <Button
+        android:id="@id/composePost_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/compose_button"/>
@@ -23,8 +24,7 @@
         android:layout_height="50dp"
         android:background="@drawable/circle_profile_button"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="goToProfile"/>
+        android:layout_alignParentEnd="true"/>
 
 
     <LinearLayout
