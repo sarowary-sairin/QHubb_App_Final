@@ -33,7 +33,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import android.content.DialogInterface;
@@ -50,7 +49,7 @@ import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
-
+/*
 import com.facebook.*;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
@@ -63,7 +62,7 @@ import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
-
+*/
 public class MainActivity extends Activity {
 
     private Button btnLogout;
@@ -96,7 +95,7 @@ public class MainActivity extends Activity {
 	private static SharedPreferences mSharedPreferences;
 
 /*******************************For Facebook login***********************************************************************/
-    private CallbackManager callbackManager;
+  /*  private CallbackManager callbackManager;
     private PendingAction pendingAction = PendingAction.NONE;
     private ProfilePictureView profilePictureView;
 
@@ -104,7 +103,7 @@ public class MainActivity extends Activity {
         NONE,
         POST_PHOTO,
         POST_STATUS_UPDATE
-    }
+    }*/
 /**************************************************************************************************************************/
 
     @Override
@@ -113,7 +112,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 /******************************Facebook Login********************************************************************************************/
-        FacebookSdk.sdkInitialize(this.getApplicationContext());
+ /*       FacebookSdk.sdkInitialize(this.getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
 
         LoginManager.getInstance().registerCallback(callbackManager,
@@ -151,7 +150,7 @@ public class MainActivity extends Activity {
                                 .show();
                     }
                 });
-
+*/
 /*************************************************************************************************************************************************/
 
         btnLogout = (Button) findViewById(R.id.btnLogout);
@@ -278,7 +277,7 @@ public class MainActivity extends Activity {
     }
 
 /*************************************Facebook Login********************************************************************************************/
-    private void handlePendingAction() {
+ /*   private void handlePendingAction() {
         PendingAction previouslyPendingAction = pendingAction;
         // These actions may re-set pendingAction if they are still pending, but we assume they
         // will succeed.
@@ -300,7 +299,7 @@ public class MainActivity extends Activity {
             profilePictureView.setProfileId(null);
         }
     }
-
+*/
 /**************************************************************************************************************************************************/
 
     private void twitter(){
@@ -496,7 +495,7 @@ public class MainActivity extends Activity {
         }
 
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+        //callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     private void displayList() throws Exception{
