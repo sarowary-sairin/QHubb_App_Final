@@ -33,7 +33,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import android.content.DialogInterface;
@@ -51,26 +50,12 @@ import twitter4j.auth.RequestToken;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
-import com.facebook.*;
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.ProfilePictureView;
-import com.facebook.share.ShareApi;
-import com.facebook.share.Sharer;
-import com.facebook.share.internal.ShareInternalUtility;
-import com.facebook.share.model.SharePhoto;
-import com.facebook.share.model.SharePhotoContent;
-import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.widget.ShareDialog;
-
 public class MainActivity extends Activity {
 
     private Button btnLogout;
     private Button btnChangePassword;
     private String email;
     private String deactive;
-
     private Button btnTwitter;
     private Button btnDeactivate;
     private Button btnTwitterLogout;
@@ -95,64 +80,10 @@ public class MainActivity extends Activity {
 	static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLoggedIn";
 	private static SharedPreferences mSharedPreferences;
 
-/*******************************For Facebook login***********************************************************************/
-    private CallbackManager callbackManager;
-    private PendingAction pendingAction = PendingAction.NONE;
-    private ProfilePictureView profilePictureView;
-
-    private enum PendingAction {
-        NONE,
-        POST_PHOTO,
-        POST_STATUS_UPDATE
-    }
-/**************************************************************************************************************************/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-/******************************Facebook Login********************************************************************************************/
-        FacebookSdk.sdkInitialize(this.getApplicationContext());
-        callbackManager = CallbackManager.Factory.create();
-
-        LoginManager.getInstance().registerCallback(callbackManager,
-                new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-                        handlePendingAction();
-                        updateUI();
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        if (pendingAction != PendingAction.NONE) {
-                            showAlert();
-                            pendingAction = PendingAction.NONE;
-                        }
-                        updateUI();
-                    }
-
-                    @Override
-                    public void onError(FacebookException exception) {
-                        if (pendingAction != PendingAction.NONE
-                                && exception instanceof FacebookAuthorizationException) {
-                            showAlert();
-                            pendingAction = PendingAction.NONE;
-                        }
-                        updateUI();
-                    }
-
-                    private void showAlert() {
-                        new AlertDialog.Builder(MainActivity.this)
-                                .setTitle(R.string.cancelled)
-                                .setMessage(R.string.permission_not_granted)
-                                .setPositiveButton(R.string.ok, null)
-                                .show();
-                    }
-                });
-
-/*************************************************************************************************************************************************/
 
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnChangePassword = (Button) findViewById(R.id.btnChangePassword);
@@ -160,8 +91,6 @@ public class MainActivity extends Activity {
         btnTwitterLogout = (Button) findViewById(R.id.btnTwitterLogout);
         btnDeactivate = (Button) findViewById(R.id.btnDeactivate);
         textDeactivateMessage = (TextView) findViewById(R.id.textDeactivateMessage);
-
-
 
         email = (String) getIntent().getSerializableExtra("email");
         deactive = (String) getIntent().getSerializableExtra("deactive");
@@ -276,32 +205,6 @@ public class MainActivity extends Activity {
             }
         });
     }
-
-/*************************************Facebook Login********************************************************************************************/
-    private void handlePendingAction() {
-        PendingAction previouslyPendingAction = pendingAction;
-        // These actions may re-set pendingAction if they are still pending, but we assume they
-        // will succeed.
-        pendingAction = PendingAction.NONE;
-
-        switch (previouslyPendingAction) {
-            case NONE:
-                break;
-        }
-    }
-
-    private void updateUI() {
-        boolean enableButtons = com.facebook.AccessToken.getCurrentAccessToken() != null;
-
-        Profile profile = Profile.getCurrentProfile();
-        if (enableButtons && profile != null) {
-            profilePictureView.setProfileId(profile.getId());
-        } else {
-            profilePictureView.setProfileId(null);
-        }
-    }
-
-/**************************************************************************************************************************************************/
 
     private void twitter(){
 
@@ -496,7 +399,6 @@ public class MainActivity extends Activity {
         }
 
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     private void displayList() throws Exception{

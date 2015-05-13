@@ -2,88 +2,46 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\libs\twitter4j-core-4.0.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="34138fe734b03ae6e9ef978b41359b5fb6467047">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\twitter4j-core-4.0.1-7fee2da3d28a95b86dea8d798b9b288a5d0d0cb8.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jojo\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-d375d530b7c7b8148b1ee1d08ac0b379a8520550.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jojo\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-e128df185eafdf442553e47a137ac46b24bb4253.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\classes-8a4452a3a00a1eb6475e2c74a9b704d81b7ce1e4.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\classes-445ed0ffa451dd673ab40b29bb74e91c2388aad6.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\libs\twitter4j-media-support-4.0.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a21e2ba0955c95cad4870f24a826bb36e5792625">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\twitter4j-media-support-4.0.1-6b8739a22e07cda55e7ebbacd15d4178239bcc8b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\libs\android-support-v4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\android-support-v4-1a83c6b80b851ccd32bbe6c487bea200fd82f91b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-3c091aa2aded4223d0bd2e5ce070265e8eaa9e8f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\libs\twitter4j-async-4.0.1.jar"
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-async-4.0.1.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="73a79e87714fb908a0991d601ae1fafc30e2040f">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\twitter4j-async-4.0.1-c1b03237ba64e30411f58e9e3c713ca15b8f20c4.jar" />
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-async-4.0.1-a31d942d6e931f66e56f169f1a6b0f7800a4f7ac.jar" />
     </item>
     <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.0.1\jars\classes.jar"
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-media-support-4.0.1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="f7188fc9a524a8f965b5aeab74879036f0431080">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\classes-2529082a6d711866aec87f3cb9461be881e92a3d.jar" />
+        sha1="a21e2ba0955c95cad4870f24a826bb36e5792625">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-media-support-4.0.1-085d61a811ce6ae2f64cef9f9a0d53d110fdc961.jar" />
     </item>
     <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\libs\twitter4j-stream-4.0.1.jar"
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\android-support-v4.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="bef35fbc1ed96dbe0670418e92412b4ca0c36576">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\twitter4j-stream-4.0.1-ee321c4bf6db78cb7db8968b80783592722e54e7.jar" />
+        sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\android-support-v4-977d05c6666593a7ff08da60869c4925e52ba549.jar" />
     </item>
     <item
-        jar="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\libs\twitter4j-examples-4.0.1.jar"
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-core-4.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="34138fe734b03ae6e9ef978b41359b5fb6467047">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-core-4.0.1-1ed50a15aec4aad71b106a2886718d16a6247586.jar" />
+    </item>
+    <item
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-examples-4.0.1.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="f061ef54a644a2e15d9dccf8190cd61044b8ae16">
-        <dex dex="C:\Users\Jojo\AndroidStudioProjects\QHubb_App_Final\app\build\intermediates\pre-dexed\debug\twitter4j-examples-4.0.1-a4dd1add9c2b12076417314ec683c007d6f04167.jar" />
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-examples-4.0.1-8a4501f7f55d0c434eb95dcf910062d7426d3b4c.jar" />
+    </item>
+    <item
+        jar="C:\Users\sairinsadique\Desktop\QHubb\app\libs\twitter4j-stream-4.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="bef35fbc1ed96dbe0670418e92412b4ca0c36576">
+        <dex dex="C:\Users\sairinsadique\Desktop\QHubb\app\build\intermediates\pre-dexed\debug\twitter4j-stream-4.0.1-88aaad640523f9f16f00fe1c4475ddc88dcabcf4.jar" />
     </item>
 
 </items>
