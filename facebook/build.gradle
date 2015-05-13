@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 project.group = 'com.facebook.android'
@@ -12,16 +12,17 @@ dependencies {
 }
 
 android {
-    android {
-        compileSdkVersion 22
-        buildToolsVersion "21.1.2"
+    compileSdkVersion 22
+    buildToolsVersion "21.1.2"
 
-        defaultConfig {
-            //applicationId "com.qhubb.qhubb"
-            minSdkVersion 22
-            targetSdkVersion 22
-        }
+    defaultConfig {
+        //applicationId "com.qhubb.qhubb"
+        minSdkVersion 22
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
     }
+
     lintOptions {
         abortOnError false
     }
@@ -49,12 +50,12 @@ task setVersion {
     sdkVersionFile.eachLine{
         def matcher = (it =~ /(?:.*BUILD = \")(.*)(?:\".*)/)
         if (matcher.matches()) {
-            project.version = matcher[0][1]
-            return
+          project.version = matcher[0][1]
+          return
         }
     }
     if (project.version.is('unspecified')) {
-        throw new GradleScriptException('Version could not be found.', null)
+      throw new GradleScriptException('Version could not be found.', null)
     }
 }
 
