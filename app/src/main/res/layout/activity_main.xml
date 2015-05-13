@@ -50,6 +50,13 @@
             android:layout_margin="4dp"
             android:background="@drawable/deactivate_button"
             />
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btnFacebook"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_margin="4dp"/>
         <Button
             android:id="@+id/btnTwitter"
             android:layout_width="231dp"

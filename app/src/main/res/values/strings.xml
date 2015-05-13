@@ -18,7 +18,15 @@
     <string name="twitter_callback">http://javatechig.android.app</string>
     <string name="twitter_oauth_verifier">oauth_verifier</string>
     <string name="title_activity_view_twitter">ViewTwitterActivity</string>
-    
+
+<!--                       Facebook Strings                   -->
+    <string name="facebook_app_id">819385874804730</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
+    <string name="ok">OK</string>
+    <string name="hello_user">Hello %1$s!</string>
+    <string name="success">Success</string>
+
      <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
         <item >Home</item>
