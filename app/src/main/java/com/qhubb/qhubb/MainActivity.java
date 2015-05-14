@@ -33,6 +33,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import android.content.DialogInterface;
@@ -50,12 +51,27 @@ import twitter4j.auth.RequestToken;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
+
+import com.facebook.*;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.ProfilePictureView;
+import com.facebook.share.ShareApi;
+import com.facebook.share.Sharer;
+import com.facebook.share.internal.ShareInternalUtility;
+import com.facebook.share.model.SharePhoto;
+import com.facebook.share.model.SharePhotoContent;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
+
 public class MainActivity extends Activity {
 
     private Button btnLogout;
     private Button btnChangePassword;
     private String email;
     private String deactive;
+
     private Button btnTwitter;
     private Button btnDeactivate;
     private Button btnTwitterLogout;
@@ -80,10 +96,133 @@ public class MainActivity extends Activity {
 	static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLoggedIn";
 	private static SharedPreferences mSharedPreferences;
 
+/*******************************For Facebook login***********************************************************************/
+private CallbackManager callbackManager;
+    private PendingAction pendingAction = PendingAction.NONE;
+    private ProfilePictureView profilePictureView;
+    private boolean canPresentShareDialog;
+    private boolean canPresentShareDialogWithPhotos;
+    private ShareDialog shareDialog;
+    private ProfileTracker profileTracker;
+    private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
+        @Override
+        public void onCancel() {
+            Log.d("HelloFacebook", "Canceled");
+        }
+
+        @Override
+        public void onError(FacebookException error) {
+            Log.d("HelloFacebook", String.format("Error: %s", error.toString()));
+            String title = getString(R.string.error);
+            String alertMessage = error.getMessage();
+            showResult(title, alertMessage);
+        }
+
+        @Override
+        public void onSuccess(Sharer.Result result) {
+            Log.d("HelloFacebook", "Success!");
+            if (result.getPostId() != null) {
+                String title = getString(R.string.success);
+                String id = result.getPostId();
+                String alertMessage = getString(R.string.successfully_posted_post, id);
+                showResult(title, alertMessage);
+            }
+        }
+
+        private void showResult(String title, String alertMessage) {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(title)
+                    .setMessage(alertMessage)
+                    .setPositiveButton(R.string.ok, null)
+                    .show();
+        }
+    };
+
+    private final String PENDING_ACTION_BUNDLE_KEY =
+            "com.qhubb.qhubb:PendingAction";
+
+    private enum PendingAction {
+        NONE,
+        POST_PHOTO,
+        POST_STATUS_UPDATE
+    }
+/**************************************************************************************************************************/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+/******************************Facebook Login********************************************************************************************/
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        handlePendingAction();
+                        updateUI();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        if (pendingAction != PendingAction.NONE) {
+                            showAlert();
+                            pendingAction = PendingAction.NONE;
+                        }
+                        updateUI();
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        if (pendingAction != PendingAction.NONE
+                                && exception instanceof FacebookAuthorizationException) {
+                            showAlert();
+                            pendingAction = PendingAction.NONE;
+                        }
+                        updateUI();
+                    }
+
+                    private void showAlert() {
+                        new AlertDialog.Builder(MainActivity.this)
+                                .setTitle(R.string.cancelled)
+                                .setMessage(R.string.permission_not_granted)
+                                .setPositiveButton(R.string.ok, null)
+                                .show();
+                    }
+                });
+
+        shareDialog = new ShareDialog(this);
+        shareDialog.registerCallback(
+                callbackManager,
+                shareCallback);
+
+        if (savedInstanceState != null) {
+            String name = savedInstanceState.getString(PENDING_ACTION_BUNDLE_KEY);
+            pendingAction = PendingAction.valueOf(name);
+        }
+
         setContentView(R.layout.activity_main);
+
+        profileTracker = new ProfileTracker() {
+            @Override
+            protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+                updateUI();
+                // It's possible that we were waiting for Profile to be populated in order to
+                // post a status update.
+                handlePendingAction();
+            }
+        };
+
+        // Can we present the share dialog for regular links?
+        canPresentShareDialog = ShareDialog.canShow(
+                ShareLinkContent.class);
+
+        // Can we present the share dialog for photos?
+        canPresentShareDialogWithPhotos = ShareDialog.canShow(
+                SharePhotoContent.class);
+
+/*************************************************************************************************************************************************/
 
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnChangePassword = (Button) findViewById(R.id.btnChangePassword);
@@ -91,6 +230,8 @@ public class MainActivity extends Activity {
         btnTwitterLogout = (Button) findViewById(R.id.btnTwitterLogout);
         btnDeactivate = (Button) findViewById(R.id.btnDeactivate);
         textDeactivateMessage = (TextView) findViewById(R.id.textDeactivateMessage);
+
+
 
         email = (String) getIntent().getSerializableExtra("email");
         deactive = (String) getIntent().getSerializableExtra("deactive");
@@ -205,6 +346,33 @@ public class MainActivity extends Activity {
             }
         });
     }
+
+/*************************************Facebook Login********************************************************************************************/
+
+    private void handlePendingAction() {
+        PendingAction previouslyPendingAction = pendingAction;
+        // These actions may re-set pendingAction if they are still pending, but we assume they
+        // will succeed.
+        pendingAction = PendingAction.NONE;
+
+        switch (previouslyPendingAction) {
+            case NONE:
+                break;
+        }
+    }
+
+    private void updateUI() {
+        boolean enableButtons = com.facebook.AccessToken.getCurrentAccessToken() != null;
+
+        Profile profile = Profile.getCurrentProfile();
+        if (enableButtons && profile != null) {
+            profilePictureView.setProfileId(profile.getId());
+        } else {
+            profilePictureView.setProfileId(null);
+        }
+    }
+
+/**************************************************************************************************************************************************/
 
     private void twitter(){
 
@@ -399,6 +567,7 @@ public class MainActivity extends Activity {
         }
 
         super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);        //Added for Facebook Login
     }
 
     private void displayList() throws Exception{
