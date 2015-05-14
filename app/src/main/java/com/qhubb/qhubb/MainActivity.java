@@ -89,15 +89,15 @@ public class MainActivity extends Activity {
     public static String accessTokenKey = null;
     public static String accessTokenKeySecret = null;
     public static String username = null;
-    
-	static String PREFERENCE_NAME = "twitter_oauth";
-	static final String PREF_KEY_OAUTH_TOKEN = "oauth_token";
-	static final String PREF_KEY_OAUTH_SECRET = "oauth_token_secret";
-	static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLoggedIn";
-	private static SharedPreferences mSharedPreferences;
 
-/*******************************For Facebook login***********************************************************************/
-private CallbackManager callbackManager;
+    static String PREFERENCE_NAME = "twitter_oauth";
+    static final String PREF_KEY_OAUTH_TOKEN = "oauth_token";
+    static final String PREF_KEY_OAUTH_SECRET = "oauth_token_secret";
+    static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLoggedIn";
+    private static SharedPreferences mSharedPreferences;
+
+    /*******************************For Facebook login***********************************************************************/
+    private CallbackManager callbackManager;
     private PendingAction pendingAction = PendingAction.NONE;
     private ProfilePictureView profilePictureView;
     private boolean canPresentShareDialog;
@@ -146,7 +146,7 @@ private CallbackManager callbackManager;
         POST_PHOTO,
         POST_STATUS_UPDATE
     }
-/**************************************************************************************************************************/
+    /**************************************************************************************************************************/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,7 +161,7 @@ private CallbackManager callbackManager;
                     @Override
                     public void onSuccess(LoginResult loginResult) {
                         handlePendingAction();
-                        updateUI();
+                        //updateUI();
                     }
 
                     @Override
@@ -170,7 +170,7 @@ private CallbackManager callbackManager;
                             showAlert();
                             pendingAction = PendingAction.NONE;
                         }
-                        updateUI();
+                        //updateUI();
                     }
 
                     @Override
@@ -180,7 +180,7 @@ private CallbackManager callbackManager;
                             showAlert();
                             pendingAction = PendingAction.NONE;
                         }
-                        updateUI();
+                        //updateUI();
                     }
 
                     private void showAlert() {
@@ -241,10 +241,10 @@ private CallbackManager callbackManager;
         /* Enabling strict mode */
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        
+
         mSharedPreferences = getApplicationContext().getSharedPreferences(
-				"MyPref", 0);
-        
+                "MyPref", 0);
+
         if ("1".equals(deactive)){
             btnDeactivate.setText("Activate");
             btnChangePassword.setEnabled(false);
@@ -347,7 +347,7 @@ private CallbackManager callbackManager;
         });
     }
 
-/*************************************Facebook Login********************************************************************************************/
+    /*************************************Facebook Login********************************************************************************************/
 
     private void handlePendingAction() {
         PendingAction previouslyPendingAction = pendingAction;
@@ -361,18 +361,24 @@ private CallbackManager callbackManager;
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        profileTracker.stopTracking();
+    }
+
     private void updateUI() {
         boolean enableButtons = com.facebook.AccessToken.getCurrentAccessToken() != null;
 
         Profile profile = Profile.getCurrentProfile();
-        if (enableButtons && profile != null) {
+        /*if (enableButtons && profile != null) {
             profilePictureView.setProfileId(profile.getId());
         } else {
             profilePictureView.setProfileId(null);
-        }
+        }*/
     }
 
-/**************************************************************************************************************************************************/
+    /**************************************************************************************************************************************************/
 
     private void twitter(){
 
@@ -435,12 +441,12 @@ private CallbackManager callbackManager;
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-        	
+
             return true;
         }
-      
 
-        
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -505,14 +511,14 @@ private CallbackManager callbackManager;
                         /**
                          *If JSON array details are stored in SQlite it launches the User Panel.
                          *
-                        Intent upanel = new Intent(getApplicationContext(), LoginActivity.class);
-                        upanel.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        pDialog.dismiss();
-                        startActivity(upanel);*/
+                         Intent upanel = new Intent(getApplicationContext(), LoginActivity.class);
+                         upanel.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                         pDialog.dismiss();
+                         startActivity(upanel);*/
                         /**
                          * Close Login Screen
                          *
-                        finish();*/
+                         finish();*/
                         pDialog.dismiss();
                     }else{
 
@@ -549,15 +555,15 @@ private CallbackManager callbackManager;
                 accessTokenKey = twitter.getOAuthAccessToken().getToken();
                 accessTokenKeySecret = twitter.getOAuthAccessToken().getTokenSecret();
                 username = user.getName();
-                
-            	Editor e = mSharedPreferences.edit();
 
-				// After getting access token, access token secret
-				// store them in application preferences
-				e.putString(PREF_KEY_OAUTH_TOKEN, accessTokenKey);
-				e.putString(PREF_KEY_OAUTH_SECRET,accessTokenKeySecret);
-				// Store login status - true
-				e.commit(); // save changes
+                Editor e = mSharedPreferences.edit();
+
+                // After getting access token, access token secret
+                // store them in application preferences
+                e.putString(PREF_KEY_OAUTH_TOKEN, accessTokenKey);
+                e.putString(PREF_KEY_OAUTH_SECRET,accessTokenKeySecret);
+                // Store login status - true
+                e.commit(); // save changes
 
                 displayList();
 
