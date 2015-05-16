@@ -50,7 +50,7 @@ public class homeFeed extends Activity {
 
         composePost_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), composePost.class);
+                Intent myIntent = new Intent(view.getContext(), UpdateStatus.class);
                 startActivityForResult(myIntent, 0);
                 finish();
 

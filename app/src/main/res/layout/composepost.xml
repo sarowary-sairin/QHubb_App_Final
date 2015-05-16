@@ -14,12 +14,11 @@
         android:layout_alignBottom="@+id/btnCancel"
         android:layout_centerHorizontal="true"/>
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/publish_button_on"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/publish_button_on"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -28,7 +27,6 @@
         android:layout_height="50dp"
         android:background="@drawable/cancel_button"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <FrameLayout
