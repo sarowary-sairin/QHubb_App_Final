@@ -166,7 +166,6 @@ public class MainActivity extends Activity {
         //etc
 
 
-
         CallbackManager mCallbackManager;
         //not sure about this following line... re: final Textview finalMtextDetails
         //TextView mTextDetails;
@@ -208,6 +207,7 @@ public class MainActivity extends Activity {
             }
         };
 
+        //what is this for?? log in or sharing post?
         shareDialog = new ShareDialog(this);
         shareDialog.registerCallback(
                 callbackManager,
