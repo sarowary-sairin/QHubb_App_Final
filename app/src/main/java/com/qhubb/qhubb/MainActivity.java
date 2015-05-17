@@ -105,7 +105,6 @@ public class MainActivity extends Activity {
     private boolean canPresentShareDialogWithPhotos;
     private ShareDialog shareDialog;
     private ProfileTracker profileTracker;
-
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
         public void onCancel() {
@@ -148,30 +147,13 @@ public class MainActivity extends Activity {
         POST_PHOTO,
         POST_STATUS_UPDATE
     }
-
-    /****************
-    GraphRequest request = GraphRequest.newMeRequest(
-            accessToken,
-            new GraphRequest.GraphJSONObjectCallback() {
-                @Override
-                public void onCompleted(
-                        JSONObject object,
-                        GraphResponse response) {
-                    // Application code
-                }
-            });
-    Bundle parameters = new Bundle();
-    parameters.putString("fields", "id,name,link");
-    request.setParameters(parameters);
-    request.executeAsync();
-     ******/
     /**************************************************************************************************************************/
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+/******************************Facebook Login********************************************************************************************/
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
 
@@ -179,8 +161,6 @@ public class MainActivity extends Activity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        com.facebook.AccessToken accessToken = loginResult.getAccessToken();
-                        Profile profile = Profile.getCurrentProfile();
                         handlePendingAction();
                         //updateUI();
                     }
@@ -213,10 +193,10 @@ public class MainActivity extends Activity {
                     }
                 });
 
-        /*shareDialog = new ShareDialog(this);
+        shareDialog = new ShareDialog(this);
         shareDialog.registerCallback(
                 callbackManager,
-                shareCallback);*/
+                shareCallback);
 
         if (savedInstanceState != null) {
             String name = savedInstanceState.getString(PENDING_ACTION_BUNDLE_KEY);
@@ -243,7 +223,8 @@ public class MainActivity extends Activity {
         canPresentShareDialogWithPhotos = ShareDialog.canShow(
                 SharePhotoContent.class);
 
-        /*Twitter from here down*/
+/*************************************************************************************************************************************************/
+
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnChangePassword = (Button) findViewById(R.id.btnChangePassword);
         btnTwitter = (Button) findViewById(R.id.btnTwitter);
@@ -397,7 +378,6 @@ public class MainActivity extends Activity {
             profilePictureView.setProfileId(null);
         }*/
     }
-
 
     /**************************************************************************************************************************************************/
 

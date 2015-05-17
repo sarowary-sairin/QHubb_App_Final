@@ -5,12 +5,12 @@ package com.qhubb.qhubb;
  */
 
 
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.facebook.*;
 import com.facebook.login.LoginManager;
@@ -22,7 +22,7 @@ import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
 
-public class FacebookActivity extends FragmentActivity {
+public class FacebookActivity extends FragmentActivity{
 
     private CallbackManager callbackManager;
     private PendingAction pendingAction = PendingAction.NONE;
@@ -31,8 +31,6 @@ public class FacebookActivity extends FragmentActivity {
     private boolean canPresentShareDialogWithPhotos;
     private ShareDialog shareDialog;
     private ProfileTracker profileTracker;
-
-
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
         public void onCancel() {
@@ -51,8 +49,6 @@ public class FacebookActivity extends FragmentActivity {
         public void onSuccess(Sharer.Result result) {
             Log.d("HelloFacebook", "Success!");
             if (result.getPostId() != null) {
-                //AccessToken accessToken = result.getAccessToken();
-                Profile profile = Profile.getCurrentProfile();
                 String title = getString(R.string.success);
                 String id = result.getPostId();
                 String alertMessage = getString(R.string.successfully_posted_post, id);
@@ -69,31 +65,6 @@ public class FacebookActivity extends FragmentActivity {
         }
     };
 
-
-    //Jonathan's Stuff
-     /*
-    private TextView mTextDetails;
-    private CallbackManager mCallbackManager;
-    private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
-        @Override
-        public void onSuccess(LoginResult loginResult) {
-            AccessToken accessToken = loginResult.getAccessToken();
-            Profile profile = Profile.getCurrentProfile();
-            mTextDetails.setText("Welcome " + profile.getName());
-        }
-
-        @Override
-        public void onCancel() {
-
-        }
-
-        @Override
-        public void onError(FacebookException e) {
-
-        }
-    };
-    //end of j stuff
-    */
     private final String PENDING_ACTION_BUNDLE_KEY =
             "com.qhubb.qhubb:PendingAction";
 
