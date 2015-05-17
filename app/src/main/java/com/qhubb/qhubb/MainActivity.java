@@ -156,47 +156,57 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //FB login below
+        //FB LOGIN BELOW
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
 
-        LoginManager.getInstance().registerCallback(callbackManager,
-                new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-                        //ACCESS TOKEN GE
-                        com.facebook.AccessToken accessToken = loginResult.getAccessToken();
-                        handlePendingAction();
-                        //updateUI();
-                    }
+        LoginButton loginButton = (LoginButton) findViewById(R.id.fb_login_button);
+        //SET APP PERMISSIONS BELOW
+        loginButton.setReadPermissions("user_friends");
+        //etc
 
-                    @Override
-                    public void onCancel() {
-                        if (pendingAction != PendingAction.NONE) {
-                            showAlert();
-                            pendingAction = PendingAction.NONE;
-                        }
-                        //updateUI();
-                    }
 
-                    @Override
-                    public void onError(FacebookException exception) {
-                        if (pendingAction != PendingAction.NONE
-                                && exception instanceof FacebookAuthorizationException) {
-                            showAlert();
-                            pendingAction = PendingAction.NONE;
-                        }
-                        //updateUI();
-                    }
 
-                    private void showAlert() {
-                        new AlertDialog.Builder(MainActivity.this)
-                                .setTitle(R.string.cancelled)
-                                .setMessage(R.string.permission_not_granted)
-                                .setPositiveButton(R.string.ok, null)
-                                .show();
-                    }
-                });
+        CallbackManager mCallbackManager;
+        //not sure about this following line... re: final Textview finalMtextDetails
+        //TextView mTextDetails;
+        FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+
+                com.facebook.AccessToken accessToken = loginResult.getAccessToken();
+                Profile profile = Profile.getCurrentProfile();
+                //mTextDetails.setText("Welcome " + profile.getName());
+                handlePendingAction();
+            }
+
+            @Override
+            public void onCancel() {
+                if (pendingAction != PendingAction.NONE) {
+                    showAlert();
+                    pendingAction = PendingAction.NONE;
+                }
+                //updateUI();
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                if (pendingAction != PendingAction.NONE
+                        && exception instanceof FacebookAuthorizationException) {
+                    showAlert();
+                    pendingAction = PendingAction.NONE;
+                }
+                //updateUI();
+            }
+
+            private void showAlert() {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle(R.string.cancelled)
+                        .setMessage(R.string.permission_not_granted)
+                        .setPositiveButton(R.string.ok, null)
+                        .show();
+            }
+        };
 
         shareDialog = new ShareDialog(this);
         shareDialog.registerCallback(
