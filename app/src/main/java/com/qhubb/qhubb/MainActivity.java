@@ -106,30 +106,6 @@ public class MainActivity extends Activity {
     private ShareDialog shareDialog;
     private ProfileTracker profileTracker;
 
-    //Jonathan's Stuff
-    private TextView mTextDetails;
-    private CallbackManager mCallbackManager;
-    private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
-        @Override
-        public void onSuccess(LoginResult loginResult) {
-            com.facebook.AccessToken accessToken = loginResult.getAccessToken();
-            Profile profile = Profile.getCurrentProfile();
-            mTextDetails.setText("Welcome " + profile.getName());
-        }
-
-        @Override
-        public void onCancel() {
-
-        }
-
-        @Override
-        public void onError(FacebookException e) {
-
-        }
-    };
-    //end of j stuff
-
-    /*
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
         public void onCancel() {
@@ -162,7 +138,7 @@ public class MainActivity extends Activity {
                     .setPositiveButton(R.string.ok, null)
                     .show();
         }
-    };*/
+    };
 
     private final String PENDING_ACTION_BUNDLE_KEY =
             "com.qhubb.qhubb:PendingAction";
@@ -191,6 +167,7 @@ public class MainActivity extends Activity {
      ******/
     /**************************************************************************************************************************/
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -202,6 +179,8 @@ public class MainActivity extends Activity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
+                        com.facebook.AccessToken accessToken = loginResult.getAccessToken();
+                        Profile profile = Profile.getCurrentProfile();
                         handlePendingAction();
                         //updateUI();
                     }

@@ -32,7 +32,7 @@ public class FacebookActivity extends FragmentActivity {
     private ShareDialog shareDialog;
     private ProfileTracker profileTracker;
 
-    /*
+
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
         public void onCancel() {
@@ -67,9 +67,11 @@ public class FacebookActivity extends FragmentActivity {
                     .setPositiveButton(R.string.ok, null)
                     .show();
         }
-    };*/
+    };
+
 
     //Jonathan's Stuff
+     /*
     private TextView mTextDetails;
     private CallbackManager mCallbackManager;
     private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
@@ -91,6 +93,7 @@ public class FacebookActivity extends FragmentActivity {
         }
     };
     //end of j stuff
+    */
     private final String PENDING_ACTION_BUNDLE_KEY =
             "com.qhubb.qhubb:PendingAction";
 
@@ -144,10 +147,10 @@ public class FacebookActivity extends FragmentActivity {
                     }
                 });
 
-       /* shareDialog = new ShareDialog(this);
+        shareDialog = new ShareDialog(this);
         shareDialog.registerCallback(
                 callbackManager,
-                shareCallback);*/
+                shareCallback);
 
         if (savedInstanceState != null) {
             String name = savedInstanceState.getString(PENDING_ACTION_BUNDLE_KEY);
