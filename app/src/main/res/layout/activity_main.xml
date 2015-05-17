@@ -52,6 +52,7 @@
             android:background="@drawable/deactivate_button"
             />
         <com.facebook.login.widget.LoginButton
+            android:id="@+id/fb_login_button"
             android:layout_width="231dp"
             android:layout_height="53dp"
             android:layout_gravity="center"

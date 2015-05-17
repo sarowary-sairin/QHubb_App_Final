@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.facebook.login.widget.LoginButton;
 import com.qhubb.qhubb.R;
 import com.qhubb.qhubb.UpdateStatus.updateTwitterStatus;
 import com.qhubb.qhubb.network.ActivityTask;
@@ -105,6 +106,8 @@ public class MainActivity extends Activity {
     private boolean canPresentShareDialogWithPhotos;
     private ShareDialog shareDialog;
     private ProfileTracker profileTracker;
+
+    //WHAT IS THIS FOR?? POSTING OR LOGGING IN????
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
         public void onCancel() {
@@ -147,13 +150,13 @@ public class MainActivity extends Activity {
         POST_PHOTO,
         POST_STATUS_UPDATE
     }
-    /**************************************************************************************************************************/
+    //STILL NOT SURE WHAT THE ABOVE IS, BUT THIS IS THE END OF IT.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-/******************************Facebook Login********************************************************************************************/
+        //FB login below
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
 
@@ -161,7 +164,7 @@ public class MainActivity extends Activity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        //ACCESS TOKEN GENERATED
+                        //ACCESS TOKEN GE
                         com.facebook.AccessToken accessToken = loginResult.getAccessToken();
                         handlePendingAction();
                         //updateUI();
@@ -225,7 +228,7 @@ public class MainActivity extends Activity {
         canPresentShareDialogWithPhotos = ShareDialog.canShow(
                 SharePhotoContent.class);
 
-/*************************************************************************************************************************************************/
+        //END OF FB LOGIN
 
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnChangePassword = (Button) findViewById(R.id.btnChangePassword);
