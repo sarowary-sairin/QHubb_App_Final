@@ -161,6 +161,8 @@ public class MainActivity extends Activity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
+                        //ACCESS TOKEN GENERATED
+                        com.facebook.AccessToken accessToken = loginResult.getAccessToken();
                         handlePendingAction();
                         //updateUI();
                     }
