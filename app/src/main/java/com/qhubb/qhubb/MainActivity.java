@@ -204,10 +204,10 @@ public class MainActivity extends Activity {
         };
 
         //what is this for?? log in or sharing post?
-        shareDialog = new ShareDialog(this);
+       /* shareDialog = new ShareDialog(this);
         shareDialog.registerCallback(
                 mCallbackManager,
-                shareCallback);
+                shareCallback);*/
 
         if (savedInstanceState != null) {
             String name = savedInstanceState.getString(PENDING_ACTION_BUNDLE_KEY);
@@ -237,7 +237,7 @@ public class MainActivity extends Activity {
 
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         //loginButton.setReadPermissions("user_friends");
-        loginButton.registerCallback(mCallbackManager, mCallback);
+        //loginButton.registerCallback(mCallbackManager, mCallback);
 
         //END OF FB STUFF
 
