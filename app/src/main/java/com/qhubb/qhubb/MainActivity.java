@@ -236,7 +236,7 @@ public class MainActivity extends Activity {
 
 
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions("user_friends");
+        //loginButton.setReadPermissions("user_friends");
         loginButton.registerCallback(mCallbackManager, mCallback);
 
         //END OF FB STUFF

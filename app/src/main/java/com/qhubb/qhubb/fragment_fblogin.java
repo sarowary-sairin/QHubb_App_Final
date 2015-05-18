@@ -22,6 +22,9 @@ import com.facebook.login.widget.LoginButton;
 /**
  * A placeholder fragment containing a simple view.
  */
+
+
+/*
 public class fragment_fblogin extends android.app.Fragment {
 
     private TextView mTextDetails;
@@ -136,3 +139,4 @@ public class fragment_fblogin extends android.app.Fragment {
         return stringBuffer.toString();
     }
 }
+*/
