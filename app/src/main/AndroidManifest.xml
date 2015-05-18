@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.qhubb.qhubb" >
+    package="com.qhubb.qhubb">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".myapplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:label="@string/app_name" />
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,58 +25,50 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
+            android:label="@string/title_activity_main"></activity>
         <activity
             android:name=".ChangePasswordActivity"
-            android:label="@string/title_activity_change_password" >
-        </activity>
+            android:label="@string/title_activity_change_password"></activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_register" >
-        </activity>
+            android:label="@string/title_activity_register"></activity>
         <activity
             android:name=".ForgotPasswordActivity"
-            android:label="@string/title_activity_forgot_password" >
-        </activity>
+            android:label="@string/title_activity_forgot_password"></activity>
         <activity
             android:name=".WebViewActivity"
-            android:label="@string/title_activity_web_view" >
-        </activity>
-        <activity
-            android:name=".ViewTwitterActivity"
-            >
-        </activity>
+            android:label="@string/title_activity_web_view"></activity>
+        <activity android:name=".ViewTwitterActivity"></activity>
         <activity
             android:name=".UpdateStatus"
-            android:label="Tweet" >
-        </activity>
+            android:label="Tweet"></activity>
         <activity
             android:name=".Timelines"
-            android:label="Tweet" >
-        </activity>
-
+            android:label="Tweet"></activity>
 
         <activity
             android:name=".UpdateQueuePost"
-            android:label="Queue Posts" >
-        </activity>
+            android:label="Queue Posts"></activity>
         <activity
             android:name=".AddQueuePost"
-            android:label="Add Queue Post" >
-        </activity>
+            android:label="Add Queue Post"></activity>
         <activity
             android:name=".DeleteEditQueue"
-            android:label="Edit or Delete Queue Post" >
-        </activity>
+            android:label="Edit or Delete Queue Post"></activity>
 
-        <provider android:authorities="com.facebook.app.FacebookContentProvider819385874804730"
+        <provider
             android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider819385874804730"
             android:exported="true" />
 
     </application>
-
 
 
 </manifest>

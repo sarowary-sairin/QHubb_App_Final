@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
     private static SharedPreferences mSharedPreferences;
 
     /*******************************For Facebook login***********************************************************************/
-    private CallbackManager callbackManager;
+    private CallbackManager mCallbackManager;
     private PendingAction pendingAction = PendingAction.NONE;
     private ProfilePictureView profilePictureView;
     private boolean canPresentShareDialog;
@@ -158,17 +158,13 @@ public class MainActivity extends Activity {
 
         //FB LOGIN BELOW
         FacebookSdk.sdkInitialize(this.getApplicationContext());
-        callbackManager = CallbackManager.Factory.create();
-
-        LoginButton loginButton = (LoginButton) findViewById(R.id.fb_login_button);
+        mCallbackManager = CallbackManager.Factory.create();
         //SET APP PERMISSIONS BELOW
-        loginButton.setReadPermissions("user_friends");
+        //LoginButton.setReadPermissions("user_friends");
         //etc
 
-
-        CallbackManager mCallbackManager;
-        //not sure about this following line... re: final Textview finalMtextDetails
-        //TextView mTextDetails;
+        //FACEBOOK LOGIN BELOW
+        //note the variable "mCallback"
         FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -210,7 +206,7 @@ public class MainActivity extends Activity {
         //what is this for?? log in or sharing post?
         shareDialog = new ShareDialog(this);
         shareDialog.registerCallback(
-                callbackManager,
+                mCallbackManager,
                 shareCallback);
 
         if (savedInstanceState != null) {
@@ -238,7 +234,12 @@ public class MainActivity extends Activity {
         canPresentShareDialogWithPhotos = ShareDialog.canShow(
                 SharePhotoContent.class);
 
-        //END OF FB LOGIN
+
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setReadPermissions("user_friends");
+        loginButton.registerCallback(mCallbackManager, mCallback);
+
+        //END OF FB STUFF
 
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnChangePassword = (Button) findViewById(R.id.btnChangePassword);
@@ -589,7 +590,7 @@ public class MainActivity extends Activity {
         }
 
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);        //Added for Facebook Login
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);        //Added for Facebook Login
     }
 
     private void displayList() throws Exception{

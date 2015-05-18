@@ -27,12 +27,12 @@ public class myapplication extends Application {
             // Add code to print out the key hash
             try {
                 PackageInfo info = getPackageManager().getPackageInfo(
-                        "com.example.jonathanalinovi.fbloginsample",
+                        "com.qhubb.qhubb",
                         PackageManager.GET_SIGNATURES);
                 for (Signature signature : info.signatures) {
                     MessageDigest md = MessageDigest.getInstance("SHA");
                     md.update(signature.toByteArray());
-                    Log.d("jonathanalinovihashkey", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                    Log.d("qhubbhashkey", Base64.encodeToString(md.digest(), Base64.DEFAULT));
                 }
             } catch (PackageManager.NameNotFoundException e) {
 

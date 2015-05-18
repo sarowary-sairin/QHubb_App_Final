@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
+<!--What is this file?-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:facebook="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"

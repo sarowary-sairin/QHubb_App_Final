@@ -51,6 +51,7 @@
             android:layout_margin="4dp"
             android:background="@drawable/deactivate_button"
             />
+
         <com.facebook.login.widget.LoginButton
             android:id="@+id/fb_login_button"
             android:layout_width="231dp"
@@ -62,6 +63,13 @@
             facebook:tooltip_mode="never_display"
             android:background="@drawable/log_in_facebook_button"
             />
+
+       <!-- should be using this one
+            <fragment android:name="com.qhubb.qhubb.fragment_fblogin"
+            android:id="@+id/fblogin"
+            android:layout_width="231dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center" />-->
 
         <Button
             android:id="@+id/btnTwitter"
