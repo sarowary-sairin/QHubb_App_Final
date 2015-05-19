@@ -24,8 +24,6 @@ import com.qhubb.qhubb.network.ActivityTask;
 import com.qhubb.qhubb.util.Service;
 
 import com.facebook.login.widget.LoginButton;
-=======
->>>>>>> origin/master
 import com.qhubb.qhubb.R;
 import com.qhubb.qhubb.UpdateStatus.updateTwitterStatus;
 import com.qhubb.qhubb.network.ActivityTask;
