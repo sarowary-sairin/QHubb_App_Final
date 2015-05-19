@@ -18,6 +18,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.qhubb.qhubb.R;
+import com.qhubb.qhubb.UpdateStatus.updateTwitterStatus;
+import com.qhubb.qhubb.network.ActivityTask;
+import com.qhubb.qhubb.util.Service;
+
 import com.facebook.login.widget.LoginButton;
 import com.qhubb.qhubb.R;
 import com.qhubb.qhubb.UpdateStatus.updateTwitterStatus;
@@ -34,7 +39,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import android.content.DialogInterface;
@@ -248,8 +252,6 @@ public class MainActivity extends Activity {
         btnDeactivate = (Button) findViewById(R.id.btnDeactivate);
         textDeactivateMessage = (TextView) findViewById(R.id.textDeactivateMessage);
 
-
-
         email = (String) getIntent().getSerializableExtra("email");
         deactive = (String) getIntent().getSerializableExtra("deactive");
 
@@ -363,7 +365,6 @@ public class MainActivity extends Activity {
             }
         });
     }
-
     /*************************************Facebook Login********************************************************************************************/
 
     private void handlePendingAction() {
@@ -441,7 +442,6 @@ public class MainActivity extends Activity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -461,8 +461,6 @@ public class MainActivity extends Activity {
 
             return true;
         }
-
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -619,7 +617,7 @@ public class MainActivity extends Activity {
 
         for (Status s : statuses) {
             timeArray.add(sdf.format(s.getCreatedAt()));
-            descriptionArray.add(s.getUser().getScreenName() + ": " + s.getText());
+            descriptionArray.add("@" + s.getUser().getScreenName() + ": " + s.getText());
         }
 
         Intent twitterView = new Intent(getApplicationContext(), ViewTwitterActivity.class);
@@ -631,7 +629,6 @@ public class MainActivity extends Activity {
 
         btnTwitterLogout.setVisibility(View.VISIBLE);
     }
-
     /**
      * log out twitter
      */

@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.qhubb.qhubb.MentionTimeline;
+
 public class Timelines extends Fragment {
 
 
@@ -24,25 +26,40 @@ public class Timelines extends Fragment {
     ArrayList<MessageDetails> details;
     AdapterView.AdapterContextMenuInfo info;
 	public Timelines(){}
+
+    public void timeline_user() {
+        Intent intent = new Intent(getActivity(), UserTimeline.class);
+        startActivity(intent);
+    }
+
+    public void timeline_mention(){
+        Intent intent = new Intent(getActivity(), MentionTimeline.class);
+        startActivity(intent);
+    }
+
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
         View rootView = inflater.inflate(R.layout.queued, container, false);
-        msgList = (ListView) rootView.findViewById(R.id.MessageList);
 		Button myProfile_button =(Button) rootView.findViewById(R.id.myProfile_button);
 		Button composePost_button =(Button) rootView.findViewById(R.id.composePost_button);
-		postqueue();
-        ConfigurationBuilder builder = new ConfigurationBuilder();
+        Button Mentions =(Button) rootView.findViewById(R.id.Mentions);
 
-		myProfile_button.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View view) {
-				/*NEED TO CHANGE THIS TO DIRECT TO THE PROPER SCREEN, NOT VIEWTWITTERACTIVITY*/
-				Intent myIntent = new Intent(view.getContext(), ViewTwitterActivity.class);
-				startActivityForResult(myIntent, 0);
-			}
-		});
+        myProfile_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timeline_user();
+            }
+        });
+        Mentions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timeline_mention();
+            }
+        });
+
 
 		composePost_button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
@@ -51,6 +68,10 @@ public class Timelines extends Fragment {
 				startActivityForResult(myIntent, 0);
 			}
 		});
+
+        msgList = (ListView) rootView.findViewById(R.id.MessageList);
+        postqueue();
+        ConfigurationBuilder builder = new ConfigurationBuilder();
 
         try {
         	  timeArray = (String[]) getActivity().getIntent().getSerializableExtra("timeArray");
