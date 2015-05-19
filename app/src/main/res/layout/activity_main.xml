@@ -61,7 +61,6 @@
             android:layout_margin="4dp"
             facebook:confirm_logout="false"
             facebook:tooltip_mode="never_display"
-            android:background="@drawable/log_in_facebook_button"
             />
 
        <!-- should be using this one
