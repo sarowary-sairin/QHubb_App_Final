@@ -12,6 +12,17 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/text_friends" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="208dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/text_friends"
+        android:text="Friends"
+        android:textColor="@color/tw__transparent"
+        android:textSize="40dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
