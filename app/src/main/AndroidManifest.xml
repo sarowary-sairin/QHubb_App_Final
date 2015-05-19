@@ -69,19 +69,19 @@
     <activity
         android:name=".UserTimeline"
         android:label="@string/title_activity_user_timeline">
-        android:name=".TimelineActivity"
-        android:label="@string/title_activity_timeline" >
     </activity>
     <activity
         android:name=".FollowerActivity"
-        android:label="@string/title_activity_follower"></activity>
+        android:label="@string/title_activity_follower">
+        </activity>
     <activity
         android:name=".FollowingActivity"
-        android:label="@string/title_activity_following"></activity>
+        android:label="@string/title_activity_following">
+    </activity>
     <activity
         android:name=".MentionTimeline"
-        android:label="@string/title_activity_mention_timeline"></activity>
-
+        android:label="@string/title_activity_mention_timeline">
+    </activity>
 
     <provider
         android:name="com.facebook.FacebookContentProvider"

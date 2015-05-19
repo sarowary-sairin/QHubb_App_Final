@@ -114,11 +114,15 @@ public class UserTimeline extends ListActivity {
                     String date = s.getCreatedAt().toString();
                     String txt = s.getText().toString();
                     String txt2 = s.getUser().getScreenName();
-                    listValues.add("@"+ txt2 + ": " + txt+" \n "+date);
+                    Integer txt3 = s.getRetweetCount();
+                    Integer txt4 = s.getFavoriteCount();
+                    listValues.add("@"+ txt2 + ": " + txt+" \n "+ "Retweet: " + txt3 + " \n " + "Favorite: "+ txt4 + "\n" + date);
                     Log.d("SCENARIO NAME", " " + s);
                     Log.d("SCENARIO NAME", " " + date);
                     Log.d("SCENARIO NAME", " "+txt);
-                    Log.d("SCENARIO NAME", " "+txt2);}
+                    Log.d("SCENARIO NAME", " "+txt2);
+                    Log.d("SCENARIO NAME", " "+txt3);
+                    Log.d("SCENARIO NAME", " "+txt4);}
             } catch (Exception e) {
                 // Error in updating status
                 Log.d("Twitter Update Error", " "+e);

@@ -36,16 +36,6 @@ public class Timelines extends Fragment {
         Intent intent = new Intent(getActivity(), MentionTimeline.class);
         startActivity(intent);
     }
-
-    public void timeline() {
-        Intent intent = new Intent(getActivity(), TimelineActivity.class);
-        startActivity(intent);
-    }
-
-    public void timeline2(){
-        Intent intent = new Intent(getActivity(),MentionTimeline.class);
-        startActivity(intent);
-    }
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,14 +50,12 @@ public class Timelines extends Fragment {
             @Override
             public void onClick(View v) {
                 timeline_user();
-                timeline();
             }
         });
         Mentions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timeline_mention();
-                timeline2();
             }
         });
 
