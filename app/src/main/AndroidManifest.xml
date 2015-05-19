@@ -32,77 +32,63 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
+            android:label="@string/title_activity_main"></activity>
         <activity
             android:name=".ChangePasswordActivity"
-            android:label="@string/title_activity_change_password" >
-        </activity>
+            android:label="@string/title_activity_change_password"></activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_register">
-        </activity>
+            android:label="@string/title_activity_register"></activity>
         <activity
             android:name=".ForgotPasswordActivity"
-            android:label="@string/title_activity_forgot_password">
-        </activity>
+            android:label="@string/title_activity_forgot_password"></activity>
         <activity
             android:name=".WebViewActivity"
-            android:label="@string/title_activity_web_view">
-        </activity>
-        <activity android:name=".ViewTwitterActivity">
-        </activity>
+            android:label="@string/title_activity_web_view"></activity>
+        <activity android:name=".ViewTwitterActivity"></activity>
         <activity
             android:name=".UpdateStatus"
-            android:label="Tweet">
-        </activity>
+            android:label="Tweet"></activity>
         <activity
             android:name=".Timelines"
-            android:label="Tweet">
-        </activity>
+            android:label="Tweet"></activity>
 
         <activity
             android:name=".UpdateQueuePost"
-            android:label="Queue Posts">
-        </activity>
+            android:label="Queue Posts"></activity>
         <activity
             android:name=".AddQueuePost"
-            android:label="Add Queue Post">
-        </activity>
+            android:label="Add Queue Post"></activity>
         <activity
             android:name=".DeleteEditQueue"
-            android:label="Edit or Delete Queue Post">
-        </activity>
             android:label="Edit or Delete Queue Post"></activity>
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="ca11772e5664c2827d1904232ff44c1f13a5983d" />
-        <activity
-            android:name=".UserTimeline"
-            android:label="@string/title_activity_user_timeline" >
-            android:name=".TimelineActivity"
-            android:label="@string/title_activity_timeline" >
-        </activity>
-        <activity
-            android:name=".FollowerActivity"
-            android:label="@string/title_activity_follower" >
-        </activity>
-        <activity
-            android:name=".FollowingActivity"
-            android:label="@string/title_activity_following" >
-        </activity>
-        <activity
-            android:name=".MentionTimeline"
-            android:label="@string/title_activity_mention_timeline" >
-        </activity>
+    <meta-data
+        android:name="io.fabric.ApiKey"
+        android:value="ca11772e5664c2827d1904232ff44c1f13a5983d" />
+
+    <activity
+        android:name=".UserTimeline"
+        android:label="@string/title_activity_user_timeline">
+        android:name=".TimelineActivity"
+        android:label="@string/title_activity_timeline" >
+    </activity>
+    <activity
+        android:name=".FollowerActivity"
+        android:label="@string/title_activity_follower"></activity>
+    <activity
+        android:name=".FollowingActivity"
+        android:label="@string/title_activity_following"></activity>
+    <activity
+        android:name=".MentionTimeline"
+        android:label="@string/title_activity_mention_timeline"></activity>
 
 
-        <provider
-            android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProvider819385874804730"
-            android:exported="true" />
+    <provider
+        android:name="com.facebook.FacebookContentProvider"
+        android:authorities="com.facebook.app.FacebookContentProvider819385874804730"
+        android:exported="true" />
 
-    </application>
+</application>
 
 
-</manifest>
+    </manifest>
