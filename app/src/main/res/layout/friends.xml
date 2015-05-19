@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:padding="12dp">
-=======
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:weightSum="1">
->>>>>>> origin/master
 
     <TextView
         android:id="@+id/textView2"
@@ -17,14 +14,9 @@
         android:gravity="center"
         android:text="Friends"
         android:textAppearance="?android:attr/textAppearanceLarge"
-<<<<<<< HEAD
-        android:textColor="#FFFFFF"
-        android:textSize="44dp"
         android:layout_above="@+id/button4"
-=======
         android:textColor="#000000"
         android:textSize="40dp"
->>>>>>> origin/master
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -32,13 +24,10 @@
         android:layout_height="wrap_content"
         android:text="Following"
         android:id="@+id/button4"
-<<<<<<< HEAD
         android:layout_above="@+id/button3"
         android:layout_centerHorizontal="true" />
-=======
         android:layout_below="@+id/textView2"
         android:layout_alignStart="@+id/button3" />
->>>>>>> origin/master
 
     <Button
         android:layout_width="wrap_content"
@@ -46,11 +35,8 @@
         android:text="Followers"
         android:id="@+id/button3"
         android:layout_centerVertical="true"
-<<<<<<< HEAD
         android:layout_alignStart="@+id/button4" />
-=======
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button4"/>
->>>>>>> origin/master
 
 </RelativeLayout>
