@@ -36,6 +36,7 @@
         <item >Home</item>
         <item >Tweet</item>
            <item >Timeline</item>
+           <item >Newsfeed</item>
         <item >Friends</item>
         <item >Queue post</item>
          <item >Search</item>
@@ -53,5 +54,8 @@
     <string name="title_activity_following">FollowingActivity</string>
     <string name="title_activity_messages">Messages</string>
     <string name="title_activity_mention_timeline">MentionTimeline</string>
+    <string name="title_activity_timeline">TimelineActivity</string>
+    <string name="title_activity_follower">FollowerActivity</string>
+    <string name="title_activity_following">FollowingActivity</string>
 
 </resources>

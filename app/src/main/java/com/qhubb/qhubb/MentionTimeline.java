@@ -136,9 +136,13 @@ public class MentionTimeline extends ListActivity {
                     String date = s.getCreatedAt().toString();
                     String txt = s.getText().toString();
                     String txt2 = s.getUser().getScreenName();
+<<<<<<< HEAD
                     Integer txt3 = s.getRetweetCount();
                     Integer txt4 = s.getFavoriteCount();
                     listValues.add("@"+ txt2 + ": " + txt+" \n "+ "Retweet: " + txt3 + " \n " + "Favorite: "+ txt4 + "\n" + date);
+=======
+                    listValues.add("@"+ txt2 + ": " + txt+" \nDated : "+date);
+>>>>>>> origin/master
                     Log.d("SCENARIO NAME", " " + s);
                     Log.d("SCENARIO NAME", " " + date);
                     Log.d("SCENARIO NAME", " "+txt);

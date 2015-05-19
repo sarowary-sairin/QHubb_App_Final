@@ -72,7 +72,6 @@ import com.facebook.share.widget.ShareDialog;
 
 public class MainActivity extends Activity {
 
-
     private Button btnLogout;
     private Button btnChangePassword;
     private String email;
@@ -103,15 +102,13 @@ public class MainActivity extends Activity {
     private static SharedPreferences mSharedPreferences;
 
     /*******************************For Facebook login***********************************************************************/
-    private CallbackManager mCallbackManager;
+    private CallbackManager callbackManager;
     private PendingAction pendingAction = PendingAction.NONE;
     private ProfilePictureView profilePictureView;
     private boolean canPresentShareDialog;
     private boolean canPresentShareDialogWithPhotos;
     private ShareDialog shareDialog;
     private ProfileTracker profileTracker;
-
-    //WHAT IS THIS FOR?? POSTING OR LOGGING IN????
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
         public void onCancel() {
@@ -154,64 +151,56 @@ public class MainActivity extends Activity {
         POST_PHOTO,
         POST_STATUS_UPDATE
     }
-    //STILL NOT SURE WHAT THE ABOVE IS, BUT THIS IS THE END OF IT.
+    /**************************************************************************************************************************/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //FB LOGIN BELOW
+/******************************Facebook Login********************************************************************************************/
         FacebookSdk.sdkInitialize(this.getApplicationContext());
-        mCallbackManager = CallbackManager.Factory.create();
-        //SET APP PERMISSIONS BELOW
-        //LoginButton.setReadPermissions("user_friends");
-        //etc
+        callbackManager = CallbackManager.Factory.create();
 
-        //FACEBOOK LOGIN BELOW
-        //note the variable "mCallback"
-        FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        handlePendingAction();
+                        //updateUI();
+                    }
 
-                com.facebook.AccessToken accessToken = loginResult.getAccessToken();
-                Profile profile = Profile.getCurrentProfile();
-                //mTextDetails.setText("Welcome " + profile.getName());
-                handlePendingAction();
-            }
+                    @Override
+                    public void onCancel() {
+                        if (pendingAction != PendingAction.NONE) {
+                            showAlert();
+                            pendingAction = PendingAction.NONE;
+                        }
+                        //updateUI();
+                    }
 
-            @Override
-            public void onCancel() {
-                if (pendingAction != PendingAction.NONE) {
-                    showAlert();
-                    pendingAction = PendingAction.NONE;
-                }
-                //updateUI();
-            }
+                    @Override
+                    public void onError(FacebookException exception) {
+                        if (pendingAction != PendingAction.NONE
+                                && exception instanceof FacebookAuthorizationException) {
+                            showAlert();
+                            pendingAction = PendingAction.NONE;
+                        }
+                        //updateUI();
+                    }
 
-            @Override
-            public void onError(FacebookException exception) {
-                if (pendingAction != PendingAction.NONE
-                        && exception instanceof FacebookAuthorizationException) {
-                    showAlert();
-                    pendingAction = PendingAction.NONE;
-                }
-                //updateUI();
-            }
+                    private void showAlert() {
+                        new AlertDialog.Builder(MainActivity.this)
+                                .setTitle(R.string.cancelled)
+                                .setMessage(R.string.permission_not_granted)
+                                .setPositiveButton(R.string.ok, null)
+                                .show();
+                    }
+                });
 
-            private void showAlert() {
-                new AlertDialog.Builder(MainActivity.this)
-                        .setTitle(R.string.cancelled)
-                        .setMessage(R.string.permission_not_granted)
-                        .setPositiveButton(R.string.ok, null)
-                        .show();
-            }
-        };
-
-        //what is this for?? log in or sharing post?
-       /* shareDialog = new ShareDialog(this);
+        shareDialog = new ShareDialog(this);
         shareDialog.registerCallback(
-                mCallbackManager,
-                shareCallback);*/
+                callbackManager,
+                shareCallback);
 
         if (savedInstanceState != null) {
             String name = savedInstanceState.getString(PENDING_ACTION_BUNDLE_KEY);
@@ -238,12 +227,7 @@ public class MainActivity extends Activity {
         canPresentShareDialogWithPhotos = ShareDialog.canShow(
                 SharePhotoContent.class);
 
-
-        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
-        //loginButton.setReadPermissions("user_friends");
-        //loginButton.registerCallback(mCallbackManager, mCallback);
-
-        //END OF FB STUFF
+/*************************************************************************************************************************************************/
 
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnChangePassword = (Button) findViewById(R.id.btnChangePassword);
@@ -588,7 +572,7 @@ public class MainActivity extends Activity {
         }
 
         super.onActivityResult(requestCode, resultCode, data);
-        mCallbackManager.onActivityResult(requestCode, resultCode, data);        //Added for Facebook Login
+        callbackManager.onActivityResult(requestCode, resultCode, data);        //Added for Facebook Login
     }
 
     private void displayList() throws Exception{
