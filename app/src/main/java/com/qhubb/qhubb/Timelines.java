@@ -27,7 +27,6 @@ public class Timelines extends Fragment {
     AdapterView.AdapterContextMenuInfo info;
 	public Timelines(){}
 
-<<<<<<< HEAD
     public void timeline_user() {
         Intent intent = new Intent(getActivity(), UserTimeline.class);
         startActivity(intent);
@@ -38,7 +37,6 @@ public class Timelines extends Fragment {
         startActivity(intent);
     }
 
-=======
     public void timeline() {
         Intent intent = new Intent(getActivity(), TimelineActivity.class);
         startActivity(intent);
@@ -48,7 +46,6 @@ public class Timelines extends Fragment {
         Intent intent = new Intent(getActivity(),MentionTimeline.class);
         startActivity(intent);
     }
->>>>>>> origin/master
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,21 +59,15 @@ public class Timelines extends Fragment {
         myProfile_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
                 timeline_user();
-=======
                 timeline();
->>>>>>> origin/master
             }
         });
         Mentions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
                 timeline_mention();
-=======
                 timeline2();
->>>>>>> origin/master
             }
         });
 
