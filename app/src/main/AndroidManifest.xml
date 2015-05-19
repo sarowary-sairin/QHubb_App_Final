@@ -62,6 +62,21 @@
         <activity
             android:name=".DeleteEditQueue"
             android:label="Edit or Delete Queue Post"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ca11772e5664c2827d1904232ff44c1f13a5983d" />
+        <activity
+            android:name=".TimelineActivity"
+            android:label="@string/title_activity_timeline" >
+        </activity>
+        <activity
+            android:name=".FollowerActivity"
+            android:label="@string/title_activity_follower" >
+        </activity>
+        <activity
+            android:name=".FollowingActivity"
+            android:label="@string/title_activity_following" >
+        </activity>
 
         <provider
             android:name="com.facebook.FacebookContentProvider"

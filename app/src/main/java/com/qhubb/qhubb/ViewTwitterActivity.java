@@ -102,8 +102,10 @@ public class ViewTwitterActivity extends Activity {
 	        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3]));
 
 	        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4]));
-	
-	    	mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
+
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[5]));
+
+            mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 			// setting the nav drawer list adapter
 			adapter = new NavDrawerListAdapter(getApplicationContext(),navDrawerItems);
 			mDrawerList.setAdapter(adapter);
@@ -205,10 +207,13 @@ public class ViewTwitterActivity extends Activity {
 			case 2:
 				fragment = new Timelines();
 				break;
-			case 3:
+            case 3:
+                 fragment = new Friends();
+                 break;
+			case 4:
 				fragment = new QueuePostthroughfragment();
 				break;
-			case 4:
+			case 5:
 				fragment = new Searchthroughfragment();
 				break;
 			
@@ -321,7 +326,7 @@ public class ViewTwitterActivity extends Activity {
 
 		class updateTwitterStatus extends AsyncTask<String, String, String> {
 
-			/**Z 	
+			/**
 			 * Before starting background thread Show Progress Dialog
 			 * */
 			@Override
