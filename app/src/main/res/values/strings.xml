@@ -27,7 +27,7 @@
     <string name="ok">OK</string>
     <string name="hello_user">Hello %1$s!</string>
     <string name="success">Success</string>
-    <string name="facebook_login">FacebookActivity</string>
+    <string name="facebook_stuff">FacebookStuff</string>
     <string name="error">Error</string>
     <string name="successfully_posted_post">Post ID: %1$s</string>
 

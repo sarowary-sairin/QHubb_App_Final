@@ -106,7 +106,6 @@ public class MainActivity extends Activity {
     private PendingAction pendingAction = PendingAction.NONE;
     private ProfilePictureView profilePictureView;
     private boolean canPresentShareDialog;
-    private boolean canPresentShareDialogWithPhotos;
     private ShareDialog shareDialog;
     private ProfileTracker profileTracker;
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
@@ -222,10 +221,6 @@ public class MainActivity extends Activity {
         // Can we present the share dialog for regular links?
         canPresentShareDialog = ShareDialog.canShow(
                 ShareLinkContent.class);
-
-        // Can we present the share dialog for photos?
-        canPresentShareDialogWithPhotos = ShareDialog.canShow(
-                SharePhotoContent.class);
 
 /*************************************************************************************************************************************************/
 
@@ -373,13 +368,7 @@ public class MainActivity extends Activity {
         boolean enableButtons = com.facebook.AccessToken.getCurrentAccessToken() != null;
 
         Profile profile = Profile.getCurrentProfile();
-        /*if (enableButtons && profile != null) {
-            profilePictureView.setProfileId(profile.getId());
-        } else {
-            profilePictureView.setProfileId(null);
-        }*/
     }
-
     /**************************************************************************************************************************************************/
 
     private void twitter(){

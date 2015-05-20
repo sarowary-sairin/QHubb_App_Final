@@ -78,7 +78,7 @@
 
 
         <Button
-            android:id="@+id/FB"
+            android:id="@+id/postStatusUpdateButton"
             android:layout_width="48dp"
             android:layout_height="50dp"
             android:layout_marginRight="16dp"

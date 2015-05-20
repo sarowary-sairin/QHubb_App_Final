@@ -54,6 +54,7 @@ public class Tweetthroughfragment extends Fragment {
 
         Button update=(Button) rootView.findViewById(R.id.button1);
         Button btnCancel=(Button) rootView.findViewById(R.id.btnCancel);
+        Button postStatusUpdateButton=(Button) rootView.findViewById(R.id.postStatusUpdateButton);
         statuss=(EditText) rootView.findViewById(R.id.editText1);
         final TextView welcome=(TextView) rootView.findViewById(R.id.textView1);
         /** What is this??? Do i need to erase the above line too?
@@ -69,6 +70,14 @@ public class Tweetthroughfragment extends Fragment {
 
             }
         });
+
+        postStatusUpdateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), FacebookStuff.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
         btnCancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(),ViewTwitterActivity.class);

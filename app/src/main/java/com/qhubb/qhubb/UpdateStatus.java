@@ -42,6 +42,8 @@ public class UpdateStatus extends Activity {
 	            	new updateTwitterStatus().execute(status);
 	            }
 	        });
+
+
 	 }
 	
 	class updateTwitterStatus extends AsyncTask<String, String, String> {
