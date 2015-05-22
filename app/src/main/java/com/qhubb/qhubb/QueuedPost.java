@@ -1,3 +1,5 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
+
 package com.qhubb.qhubb;
 
 import android.app.Fragment;
@@ -7,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
-/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
 
 public class QueuedPost extends Fragment {
 	

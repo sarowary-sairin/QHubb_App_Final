@@ -1,3 +1,4 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
 package com.qhubb.qhubb;
 
 import android.app.Activity;
@@ -28,33 +29,32 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
 
 public class RegisterActivity extends Activity {
 
-    private EditText txtFirstName;
-    private EditText txtLastName;
-    private EditText txtEmail;
-    private EditText txtPassword;
+    private EditText txtFirstName; /*first name*/
+    private EditText txtLastName; /*last name*/
+    private EditText txtEmail; /*email*/
+    private EditText txtPassword; /*password*/
 
-    private Button btnRegister;
-    private Button btnRegisterBack;
-    private TextView textRegisterMessage;
+    private Button btnRegister; /*register button*/
+    private Button btnRegisterBack; /*register back button*/
+    private TextView textRegisterMessage; /*register message*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        txtFirstName = (EditText) findViewById(R.id.txtFirstName);
-        txtLastName = (EditText) findViewById(R.id.txtLastName);
-        txtEmail = (EditText) findViewById(R.id.txtEmail);
-        txtPassword = (EditText) findViewById(R.id.txtPassword);
-        btnRegister = (Button) findViewById(R.id.btnRegister);
-        btnRegisterBack = (Button) findViewById(R.id.btnRegisterBack);
-        textRegisterMessage = (TextView) findViewById(R.id.textRegisterMessage);
+        txtFirstName = (EditText) findViewById(R.id.txtFirstName); /*first name text*/
+        txtLastName = (EditText) findViewById(R.id.txtLastName); /*last name text*/
+        txtEmail = (EditText) findViewById(R.id.txtEmail); /*email text*/
+        txtPassword = (EditText) findViewById(R.id.txtPassword); /*password text*/
+        btnRegister = (Button) findViewById(R.id.btnRegister); /*register button*/
+        btnRegisterBack = (Button) findViewById(R.id.btnRegisterBack); /*back register button*/
+        textRegisterMessage = (TextView) findViewById(R.id.textRegisterMessage); /*register message*/
 
-        btnRegisterBack.setOnClickListener(new View.OnClickListener() {
+        btnRegisterBack.setOnClickListener(new View.OnClickListener() { /*login activity start when button clicked*/
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), LoginActivity.class);
                 startActivityForResult(myIntent, 0);
@@ -63,10 +63,10 @@ public class RegisterActivity extends Activity {
 
         });
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() { /*register activity start when button closed*/
             @Override
             public void onClick(View view) {
-
+                /*check password, first name, last name, and email*/
                 if ( ( !txtPassword.getText().toString().equals("")) && ( !txtFirstName.getText().toString().equals("")) &&
                         ( !txtLastName.getText().toString().equals("")) && ( !txtEmail.getText().toString().equals("")) )
                 {
@@ -75,7 +75,7 @@ public class RegisterActivity extends Activity {
                 else
                 {
                     Toast.makeText(getApplicationContext(),
-                            "One or more fields are empty", Toast.LENGTH_SHORT).show();
+                            "One or more fields are empty", Toast.LENGTH_SHORT).show(); /*error if fields are empty*/
                 }
             }
         });
@@ -84,19 +84,19 @@ public class RegisterActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        /*Inflate the menu; this adds items to the action bar if it is present.*/
         getMenuInflater().inflate(R.menu.menu_register, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        /*Handle action bar item clicks here. The action bar will
+        automatically handle clicks on the Home/Up button, so long
+        as you specify a parent activity in AndroidManifest.xml.*/
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        /*noinspection SimplifiableIfStatement*/
         if (id == R.id.action_settings) {
             return true;
         }
@@ -104,12 +104,14 @@ public class RegisterActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*register execution*/
     private class ProcessRegister extends AsyncTask<String, String, JSONObject> {
 
         private ProgressDialog pDialog;
 
-        String email,password,fname,lname;
+        String email,password,fname,lname; /*string for email, password, first name, last name*/
 
+        /*pre execution of register*/
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -125,6 +127,8 @@ public class RegisterActivity extends Activity {
             pDialog.show();
         }
 
+
+        /*JSON used to communicate with the server, execution stage*/
         @Override
         protected JSONObject doInBackground(String... args) {
 
@@ -138,9 +142,7 @@ public class RegisterActivity extends Activity {
         }
         @Override
         protected void onPostExecute(JSONObject json) {
-            /**
-             * Checks for success message.
-             **/
+            /*Checks for success message.*/
             try {
                 if (json.getString("success") != null) {
                     textRegisterMessage.setText("");
@@ -154,13 +156,11 @@ public class RegisterActivity extends Activity {
 
                         textRegisterMessage.setText("Successfully Registered");
                         Toast.makeText(getApplicationContext(),
-                                "Successfully Registered", Toast.LENGTH_SHORT).show();
+                                "Successfully Registered", Toast.LENGTH_SHORT).show(); /*user successfully registered*/
 
                         Intent registered = new Intent(getApplicationContext(), LoginActivity.class);
 
-                        /**
-                         * Close all views before launching Registered screen
-                         **/
+                        /*Close all views before launching Registered screen*/
                         registered.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         pDialog.dismiss();
                         startActivity(registered);
@@ -170,11 +170,11 @@ public class RegisterActivity extends Activity {
 
                     else if (Integer.parseInt(red) ==2){
                         pDialog.dismiss();
-                        textRegisterMessage.setText("User already exists");
+                        textRegisterMessage.setText("User already exists"); /*user exists*/
                     }
                     else if (Integer.parseInt(red) ==3){
                         pDialog.dismiss();
-                        textRegisterMessage.setText("Invalid Email");
+                        textRegisterMessage.setText("Invalid Email"); /*user enter invalid email*/
                     }
 
                 }
@@ -183,7 +183,7 @@ public class RegisterActivity extends Activity {
                 else{
                     pDialog.dismiss();
 
-                    textRegisterMessage.setText("Error in registration");
+                    textRegisterMessage.setText("Error in registration"); /*error registering*/
                 }
 
             } catch (JSONException e) {

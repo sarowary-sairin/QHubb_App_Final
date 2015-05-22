@@ -1,3 +1,5 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
+
 package com.qhubb.qhubb;
 
 import java.util.ArrayList;
@@ -22,12 +24,12 @@ public class Friends extends Fragment {
 
     public Friends(){}
 
-    public void followers() {
+    public void followers() { /*follower activity*/
         Intent intent = new Intent(getActivity(), FollowerActivity.class);
         startActivity(intent);
     }
 
-    public void following() {
+    public void following() { /*following activity*/
         Intent intent = new Intent(getActivity(), FollowingActivity.class);
         startActivity(intent);
     }
@@ -36,20 +38,23 @@ public class Friends extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.friends, container, false);
-        Button button3 = (Button) rootView.findViewById(R.id.button3);
-        Button button4 = (Button) rootView.findViewById(R.id.button4);
+        Button button3 = (Button) rootView.findViewById(R.id.button3); /*button for follower*/
+        Button button4 = (Button) rootView.findViewById(R.id.button4); /*button for following*/
 
+        /*start follower activity if button clicked*/
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), FollowerActivity.class);
                 startActivityForResult(myIntent, 0);
             }});
 
+        /*start following activity if button clicked*/
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), FollowingActivity.class);
                 startActivityForResult(myIntent, 0);
             }});
+
         final TextView friends=(TextView) rootView.findViewById(R.id.textView2);
         friends.setText("Friends");
         return rootView;

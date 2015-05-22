@@ -1,3 +1,5 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
+
 package com.qhubb.qhubb;
 
 import android.app.ListActivity;
@@ -20,7 +22,7 @@ import twitter4j.auth.AccessToken;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class TimelineActivity extends ListActivity {
-
+    /*twitter key, key secret, callback url, oauth, oauth token, oauth token secret*/
     private static String url_get_followers = "https://api.twitter.com/1.1/followers/list.json?cursor=-1&screen_name=abrar__ahmad&skip_status=true&include_user_entities=false";
     private static final String TWITTER_KEY = "HcyoJzWDGz5YlhQqtsC966jkd";
     private static final String TWITTER_SECRET = "HcjlxNfFdYgx46AiNFdoxjEXNzQYVJ071P3Epkm9OxZXwf8RHo";
@@ -45,15 +47,14 @@ public class TimelineActivity extends ListActivity {
         }
         mSharedPreferences = getApplicationContext().getSharedPreferences(
                 "MyPref", 0);
-        //String name=null;
         try {
             ConfigurationBuilder builder = new ConfigurationBuilder();
             builder.setOAuthConsumerKey(consumerKey);
             builder.setOAuthConsumerSecret(consumerSecret);
 
-            // Access Token
+            /*Access Token*/
             String access_token = mSharedPreferences.getString(PREF_KEY_OAUTH_TOKEN, "");
-            // Access Token Secret
+            /*Access Token Secret*/
             String access_token_secret = mSharedPreferences.getString(PREF_KEY_OAUTH_SECRET, "");
 
             AccessToken accessToken = new AccessToken(access_token, access_token_secret);
@@ -62,7 +63,7 @@ public class TimelineActivity extends ListActivity {
             name = twitter.getScreenName();
             Log.d("SCENARIO NAME",name);
         } catch (Exception e) {
-            // Error in updating status
+            /*Error in updating status*/
             Log.d("Twitter Update Error", e.getMessage());
         }
 
@@ -83,12 +84,12 @@ public class TimelineActivity extends ListActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        /*Handle action bar item clicks here. The action bar will
+        automatically handle clicks on the Home/Up button, so long
+        as you specify a parent activity in AndroidManifest.xml.*/
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        /*noinspection SimplifiableIfStatement*/
         if (id == R.id.action_settings) {
             return true;
         }

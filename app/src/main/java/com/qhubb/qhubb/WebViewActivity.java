@@ -1,3 +1,4 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
 package com.qhubb.qhubb;
 
 import android.app.Activity;

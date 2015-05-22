@@ -1,3 +1,5 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
+
 package com.qhubb.qhubb;
 
 import android.app.Activity;
@@ -39,23 +41,24 @@ import java.util.HashMap;
 
 public class ChangePasswordActivity extends Activity {
 
-    private EditText txtPassword;
-    private Button btnChangePassword;
-    private Button btnChangePasswordBack;
-    private TextView textChangePasswordMessage;
+    private EditText txtPassword; /*password*/
+    private Button btnChangePassword; /*change password*/
+    private Button btnChangePasswordBack; /*button to go back from change password screen*/
+    private TextView textChangePasswordMessage; /*change password message*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        setContentView(R.layout.activity_change_password); /*xml file for change password*/
 
-        txtPassword = (EditText) findViewById(R.id.txtPassword);
-        btnChangePassword = (Button) findViewById(R.id.btnChangePassword);
-        btnChangePasswordBack = (Button) findViewById(R.id.btnChangePasswordBack);
-        textChangePasswordMessage = (TextView) findViewById(R.id.textChangePasswordMessage);
+        txtPassword = (EditText) findViewById(R.id.txtPassword); /*enter password*/
+        btnChangePassword = (Button) findViewById(R.id.btnChangePassword); /*change password button*/
+        btnChangePasswordBack = (Button) findViewById(R.id.btnChangePasswordBack); /*button to go back from change password screen*/
+        textChangePasswordMessage = (TextView) findViewById(R.id.textChangePasswordMessage); /*change password message*/
 
-        btnChangePasswordBack.setOnClickListener(new View.OnClickListener() {
+        btnChangePasswordBack.setOnClickListener(new View.OnClickListener() { /*change password back button clicked*/
             public void onClick(View view) {
+                /*go back to MainActivity*/
                 Intent myIntent = new Intent(view.getContext(), MainActivity.class);
                 startActivityForResult(myIntent, 0);
                 finish();
@@ -63,14 +66,14 @@ public class ChangePasswordActivity extends Activity {
 
         });
 
-        btnChangePassword.setOnClickListener(new View.OnClickListener() {
+        btnChangePassword.setOnClickListener(new View.OnClickListener() { /*change password button clicked*/
             @Override
             public void onClick(View view) {
-                if (txtPassword.getText().toString().equals("")){
+                if (txtPassword.getText().toString().equals("")){ /*if the password entered is empty*/
                     Toast.makeText(getApplicationContext(),
-                            "Email empty", Toast.LENGTH_SHORT).show();
+                            "Email empty", Toast.LENGTH_SHORT).show(); /*notify user email empty*/
                 }else {
-                    execute(view);
+                    execute(view); /*else executing view*/
                 }
             }
         });
@@ -78,19 +81,19 @@ public class ChangePasswordActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        /*Inflate the menu; this adds items to the action bar if it is present.*/
         getMenuInflater().inflate(R.menu.menu_change_password, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        /*Handle action bar item clicks here. The action bar will
+        automatically handle clicks on the Home/Up button, so long
+        as you specify a parent activity in AndroidManifest.xml*/
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        /*noinspection SimplifiableIfStatement*/
         if (id == R.id.action_settings) {
             return true;
         }
@@ -98,6 +101,7 @@ public class ChangePasswordActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*executing stage when changing password*/
     private class ProcessRegister extends AsyncTask<String, String, JSONObject> {
 
         private ProgressDialog pDialog;
@@ -117,6 +121,7 @@ public class ChangePasswordActivity extends Activity {
             pDialog.show();
         }
 
+        /*JSON used to communicate with the server, execution stage*/
         @Override
         protected JSONObject doInBackground(String... args) {
             Service userFunction = new Service();
@@ -125,7 +130,7 @@ public class ChangePasswordActivity extends Activity {
             return json;
         }
 
-
+        /*post execute stage*/
         @Override
         protected void onPostExecute(JSONObject json) {
 
@@ -135,14 +140,13 @@ public class ChangePasswordActivity extends Activity {
                     String res = json.getString("success");
                     String red = json.getString("error");
 
+                    /*notify user if success*/
                     if (Integer.parseInt(res) == 1) {
-                        /**
-                         * Dismiss the process dialog
-                         **/
+                        /*Dismiss the process dialog*/
                         pDialog.dismiss();
                         textChangePasswordMessage.setText("Your Password is successfully changed.");
 
-
+                    /*notify user if error*/
                     } else if (Integer.parseInt(red) == 2) {
                         pDialog.dismiss();
                         textChangePasswordMessage.setText("Invalid old Password.");

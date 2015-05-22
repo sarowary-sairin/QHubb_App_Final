@@ -1,3 +1,5 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
+
 package com.qhubb.qhubb;
 
 import java.util.ArrayList;
@@ -10,8 +12,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
-
 public class MyCustomBaseAdapter extends BaseAdapter {
 	private static ArrayList<AdatpterValues> searchArrayList;
 	
@@ -22,15 +22,15 @@ public class MyCustomBaseAdapter extends BaseAdapter {
 		mInflater = LayoutInflater.from(context);
 	}
 
-	public int getCount() {
+	public int getCount() { /*get size of array list*/
 		return searchArrayList.size();	
 	}
 
-	public Object getItem(int position) {
+	public Object getItem(int position) { /*search array list for position*/
 		return searchArrayList.get(position);
 	}
 
-	public long getItemId(int position) {
+	public long getItemId(int position) { /*get position*/
 		return position;
 	}
 
@@ -39,9 +39,9 @@ public class MyCustomBaseAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.meetinglist, null);
 			holder = new ViewHolder();
-			holder.sstatus = (TextView) convertView.findViewById(R.id.topic);
-			holder.sstime = (TextView) convertView.findViewById(R.id.stime);
-			holder.ssdate = (TextView) convertView.findViewById(R.id.sdate);
+			holder.sstatus = (TextView) convertView.findViewById(R.id.topic); /*view status*/
+			holder.sstime = (TextView) convertView.findViewById(R.id.stime); /*view time*/
+			holder.ssdate = (TextView) convertView.findViewById(R.id.sdate); /*view date*/
 			
 			
 
@@ -51,9 +51,9 @@ public class MyCustomBaseAdapter extends BaseAdapter {
 		}
 		
 		
-		holder.sstatus.setText(searchArrayList.get(position).getstutus());
-		holder.sstime.setText(searchArrayList.get(position).getTime());
-		holder.ssdate.setText(searchArrayList.get(position).getDate());
+		holder.sstatus.setText(searchArrayList.get(position).getstutus()); /*get status*/
+		holder.sstime.setText(searchArrayList.get(position).getTime()); /*get time*/
+		holder.ssdate.setText(searchArrayList.get(position).getDate()); /*get date*/
 		
 
 
@@ -62,9 +62,9 @@ public class MyCustomBaseAdapter extends BaseAdapter {
 
 	static class ViewHolder {
 	
-		TextView sstatus;
-		TextView sstime;
-		TextView ssdate;
+		TextView sstatus; /*status*/
+		TextView sstime; /*time*/
+		TextView ssdate; /*date*/
 		
 		
 	}

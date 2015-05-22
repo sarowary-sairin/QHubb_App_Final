@@ -1,3 +1,5 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
+
 package com.qhubb.qhubb;
 
 import android.app.ListActivity;
@@ -21,14 +23,6 @@ import twitter4j.auth.AccessToken;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class MentionTimeline extends ListActivity {
-    //    EditText editText;
-//    String MentionTimeline;
-//    public void timeline(View view){
-//        MentionTimeline = editText.getText().toString();
-//        Intent intent = new Intent(this, TimelineActivity.class);
-//        intent.putExtra("MentionTimeline",MentionTimeline);
-//        startActivity(intent);
-//    }
     ProgressDialog pDialog;
     private static String url_get_followers = "https://api.twitter.com/1.1/followers/list.json?cursor=-1&screen_name=abrar__ahmad&skip_status=true&include_user_entities=false";
     private static final String TWITTER_KEY = "HcyoJzWDGz5YlhQqtsC966jkd";
@@ -47,28 +41,12 @@ public class MentionTimeline extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         listValues = new ArrayList<String>();
-//        //Button button = (Button) findViewById(R.id.button6);
-//        editText = (EditText)findViewById(R.id.editText);
         new GetMentionTimeline().execute();
         myAdapter = new ArrayAdapter <String>(this,R.layout.row_list_followers, R.id.listText, listValues);
 
         mSharedPreferences = getApplicationContext().getSharedPreferences(
                 "MyPref", 0);
         setListAdapter(myAdapter);
-        //String name=null;
-
-
-        //MentionTimeline = editText.getText().toString();
-
-
-
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                MentionTimeline = editText.getText().toString();
-//                timeline();
-//            }
-//        });
         setContentView(R.layout.activity_mention_timeline);
     }
 

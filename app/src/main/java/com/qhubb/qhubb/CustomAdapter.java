@@ -1,3 +1,5 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
+
 package com.qhubb.qhubb;
 
 import android.content.Context;
@@ -38,22 +40,22 @@ public class CustomAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         View v = convertView;
-        if (v == null)
+        if (v == null) /*if view is empty*/
         {
             LayoutInflater vi = (LayoutInflater)_c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = vi.inflate(R.layout.list_item_message, null);
+            v = vi.inflate(R.layout.list_item_message, null); /*xml to list item message for timeline for twitter*/
         }
 
-        ImageView image = (ImageView) v.findViewById(R.id.icon);
-        TextView timeView = (TextView)v.findViewById(R.id.time);
-        TextView descView = (TextView)v.findViewById(R.id.description);
+        ImageView image = (ImageView) v.findViewById(R.id.icon); /*view icon*/
+        TextView timeView = (TextView)v.findViewById(R.id.time); /*view time*/
+        TextView descView = (TextView)v.findViewById(R.id.description); /*view description*/
 
 
-        MessageDetails msg = _data.get(position);
+        MessageDetails msg = _data.get(position); /*position of message*/
 
-        descView.setText(msg.desc);
-        timeView.setText(msg.time);
+        descView.setText(msg.desc); /*view description of message*/
+        timeView.setText(msg.time); /*view time of message*/
 
-        return v;
+        return v; /*show timeline/view*/
     }
 }

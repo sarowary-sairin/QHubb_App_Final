@@ -1,3 +1,5 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
+
 package com.qhubb.qhubb;
 
 import java.util.ArrayList;
@@ -24,18 +26,15 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
-/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
-
 public class QueuePostthroughfragment extends Fragment {
-    DatabaseHandler db;
-    ArrayList<AdatpterValues> queue;
+    DatabaseHandler db; /*database handler*/
+    ArrayList<AdatpterValues> queue; /*array list for queue*/
     ListView lv1;
-    List<MeetingAttribute> contacts;
-    static String PREFERENCE_NAME = "twitter_oauth";
-    static final String PREF_KEY_OAUTH_TOKEN = "oauth_token";
-    static final String PREF_KEY_OAUTH_SECRET = "oauth_token_secret";
-    static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLoggedIn";
+    List<MeetingAttribute> contacts; /*queue contents*/
+    static String PREFERENCE_NAME = "twitter_oauth"; /*oauth*/
+    static final String PREF_KEY_OAUTH_TOKEN = "oauth_token"; /*oauth token*/
+    static final String PREF_KEY_OAUTH_SECRET = "oauth_token_secret"; /*oauth token secret*/
+    static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLoggedIn"; /*check if looged in*/
     private static SharedPreferences mSharedPreferences;
     String status;
 
@@ -48,18 +47,18 @@ public class QueuePostthroughfragment extends Fragment {
         lv1=(ListView) rootView.findViewById(R.id.ListView01);
         mSharedPreferences = getActivity().getApplicationContext().getSharedPreferences(
                 "MyPref", 0);
-        postqueue();
-        db=new DatabaseHandler(getActivity().getApplicationContext());
-        queue = new ArrayList<AdatpterValues>();
+        postqueue(); /*call on post queue function*/
+        db=new DatabaseHandler(getActivity().getApplicationContext()); /*database*/
+        queue = new ArrayList<AdatpterValues>(); /*queue*/
         AdatpterValues sr1 = null;
 
-        contacts = db.getAllQueuedata();
+        contacts = db.getAllQueuedata(); /*get queue data*/
 
         for (MeetingAttribute cn : contacts) {
             sr1=new AdatpterValues();
-            sr1.setstatus("Status : "+cn.getstutus());
-            sr1.setTime("Time : "+cn.getTime());
-            sr1.setDate("Date : "+cn.getDate());
+            sr1.setstatus("Status : "+cn.getstutus()); /*status*/
+            sr1.setTime("Time : "+cn.getTime()); /*time*/
+            sr1.setDate("Date : "+cn.getDate()); /*date*/
             queue.add(sr1);
         }
         lv1.setAdapter(new MyCustomBaseAdapter(getActivity().getApplicationContext(), queue));
@@ -70,47 +69,49 @@ public class QueuePostthroughfragment extends Fragment {
     }
     public void postqueue()
     {
-        DatabaseHandler db;
-        List<MeetingAttribute> contacts;
-        Calendar c = Calendar.getInstance();
-        db=new DatabaseHandler(getActivity().getApplicationContext());
+        DatabaseHandler db; /*database handler*/
+        List<MeetingAttribute> contacts; /*queue data*/
+        Calendar c = Calendar.getInstance(); /*calender instance*/
+        db=new DatabaseHandler(getActivity().getApplicationContext()); /*Call on database handler*/
 
 
 
-        contacts = db.getAllQueuedata();
+        contacts = db.getAllQueuedata(); /*get all queue data*/
 
         for (MeetingAttribute cn : contacts) {
-            String[] time = cn.getTime().split(":");
-            int hours=Integer.parseInt(time[0]);
-            int mint=Integer.parseInt(time[1]);
-            String[] date=cn.getDate().split("/");
-            int month=Integer.parseInt(date[0]);
-            int day=Integer.parseInt(date[1]);
-            int year=Integer.parseInt(date[2]);
-            int seconds = c.get(Calendar.SECOND);
-            if(year<=c.get(Calendar.YEAR))
+            String[] time = cn.getTime().split(":"); /*get time*/
+            int hours=Integer.parseInt(time[0]); /*get hour*/
+            int mint=Integer.parseInt(time[1]); /*get minute*/
+            String[] date=cn.getDate().split("/"); /*get date*/
+            int month=Integer.parseInt(date[0]); /*get month*/
+            int day=Integer.parseInt(date[1]); /*get day*/
+            int year=Integer.parseInt(date[2]); /*get year*/
+            int seconds = c.get(Calendar.SECOND); /*get seconds*/
+            if(year<=c.get(Calendar.YEAR)) /*if year less than in calendar*/
             {
-                if(month<(c.get(Calendar.MONTH)+1))
+                if(month<(c.get(Calendar.MONTH)+1)) /*if month less than next sequential month in calendar*/
                 {
-                    db.deleteQueue(cn.getId());
-                    status=cn.getstutus();
-                    new updateTwitterStatus().execute(status);
+                    db.deleteQueue(cn.getId()); /*delete queue if instructed by user*/
+                    status=cn.getstutus(); /*get status*/
+                    new updateTwitterStatus().execute(status); /*update status*/
+                    /*post queue through twitter permission by access token and access token secret*/
                     Toast.makeText(getActivity().getApplicationContext(), "queue posted", Toast.LENGTH_SHORT).show();
                     MainActivity.accessTokenKey=null;
                     MainActivity.accessTokenKeySecret=null;
                     startActivity(new Intent(getActivity().getApplicationContext(),MainActivity.class));
                 }
-                if(month==(c.get(Calendar.MONTH)+1))
+                if(month==(c.get(Calendar.MONTH)+1)) /*if month less than next sequential month in calendar*/
                 {
-                    if(day<=c.get(Calendar.DAY_OF_MONTH))
+                    if(day<=c.get(Calendar.DAY_OF_MONTH)) /*if day less than day of the month in calendar*/
                     {
-                        if(hours<=c.get(Calendar.HOUR_OF_DAY))
+                        if(hours<=c.get(Calendar.HOUR_OF_DAY)) /*if hour less than hour of day in calendar*/
                         {
-                            if(mint<=c.get(Calendar.MINUTE))
+                            if(mint<=c.get(Calendar.MINUTE))  /*if minute less than minute in calendar*/
                             {
-                                db.deleteQueue(cn.getId());
-                                status=cn.getstutus();
-                                new updateTwitterStatus().execute(status);
+                                db.deleteQueue(cn.getId()); /*delete queue if instructed by user*/
+                                status=cn.getstutus(); /*get status*/
+                                new updateTwitterStatus().execute(status); /*update status*/
+                                /*post queue through twitter permission by access token and access token secret*/
                                 Toast.makeText(getActivity().getApplicationContext(), "queue posted complete date", Toast.LENGTH_SHORT).show();
                                 MainActivity.accessTokenKey=null;
                                 MainActivity.accessTokenKeySecret=null;
@@ -125,19 +126,16 @@ public class QueuePostthroughfragment extends Fragment {
         }
     }
 
+    /*update twitter status*/
     class updateTwitterStatus extends AsyncTask<String, String, String> {
 
-        /**Z
-         * Before starting background thread Show Progress Dialog
-         * */
+        /*Before starting background thread Show Progress Dialog*/
         @Override
         protected void onPreExecute() {
 
         }
 
-        /**
-         * getting Places JSON
-         * */
+        /*getting Places JSON*/
         protected String doInBackground(String... args) {
             Log.d("Tweet Text", "> " + args[0]);
             String status = args[0];
@@ -146,22 +144,22 @@ public class QueuePostthroughfragment extends Fragment {
                 builder.setOAuthConsumerKey(MainActivity.consumerKey);
                 builder.setOAuthConsumerSecret(MainActivity.consumerSecret);
 
-                // Access Token
+                /*Access Token*/
                 String access_token = mSharedPreferences.getString(PREF_KEY_OAUTH_TOKEN, "");
-                // Access Token Secret
+                /*Access Token Secret*/
                 String access_token_secret = mSharedPreferences.getString(PREF_KEY_OAUTH_SECRET, "");
 
                 AccessToken accessToken = new AccessToken(access_token, access_token_secret);
                 Twitter twitter = new TwitterFactory(builder.build()).getInstance(accessToken);
 
-                // Update status
+                /*Update status*/
                 twitter4j.Status response = twitter.updateStatus(status);
 
 
 
                 Log.d("Status", "> " + response.getText());
             } catch (TwitterException e) {
-                // Error in updating status
+                /*Error in updating status*/
                 Log.d("Twitter Update Error", e.getMessage());
             }
             return null;
@@ -173,7 +171,7 @@ public class QueuePostthroughfragment extends Fragment {
          * from background thread, otherwise you will get error
          * **/
         protected void onPostExecute(String file_url) {
-            // dismiss the dialog after getting all products
+            /*dismiss the dialog after getting all products*/
 
 
             Toast.makeText(getActivity().getApplicationContext(),"Tweet updated Successfully",Toast.LENGTH_SHORT).show();

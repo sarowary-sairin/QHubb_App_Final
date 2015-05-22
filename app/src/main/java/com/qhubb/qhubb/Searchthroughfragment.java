@@ -1,3 +1,4 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
 package com.qhubb.qhubb;
 
 import java.util.Calendar;
@@ -26,7 +27,6 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 
-/* PLEASE DESCRIBE THE CONTENTS OF THIS JAVA CLASS */
 
 public class Searchthroughfragment extends Fragment {
 	
@@ -70,37 +70,39 @@ public class Searchthroughfragment extends Fragment {
 	        contacts = db.getAllQueuedata();    
 			 
 	        for (MeetingAttribute cn : contacts) {
-					String[] time = cn.getTime().split(":");
-					int hours=Integer.parseInt(time[0]);
-					int mint=Integer.parseInt(time[1]);
-					String[] date=cn.getDate().split("/");
-					int month=Integer.parseInt(date[0]);
-					int day=Integer.parseInt(date[1]);
-					int year=Integer.parseInt(date[2]);
-					int seconds = c.get(Calendar.SECOND);
-					if(year<=c.get(Calendar.YEAR))
+					String[] time = cn.getTime().split(":"); /*get time*/
+					int hours=Integer.parseInt(time[0]); /*get hour*/
+					int mint=Integer.parseInt(time[1]); /*get minute*/
+					String[] date=cn.getDate().split("/"); /*get date*/
+					int month=Integer.parseInt(date[0]); /*get month*/
+					int day=Integer.parseInt(date[1]); /*get day*/
+					int year=Integer.parseInt(date[2]); /*get year*/
+					int seconds = c.get(Calendar.SECOND); /*get seconds*/
+					if(year<=c.get(Calendar.YEAR)) /*if year is less than calendar year*/
 					{
-						if(month<(c.get(Calendar.MONTH)+1))
+						if(month<(c.get(Calendar.MONTH)+1)) /*if moonth is less than next sequential calendar month*/
 						{
-							db.deleteQueue(cn.getId());
-							statuss=cn.getstutus();
-							new updateTwitterStatus().execute(statuss);
+							db.deleteQueue(cn.getId()); /*delete queue if selected*/
+							statuss=cn.getstutus(); /*get status*/
+							new updateTwitterStatus().execute(statuss); /*update status*/
+                            /*post queue through twitter permission by access token and access token secret*/
 							Toast.makeText(getActivity().getApplicationContext(), "queue posted", Toast.LENGTH_SHORT).show();
 							MainActivity.accessTokenKey=null;
 							MainActivity.accessTokenKeySecret=null;
 							startActivity(new Intent(getActivity().getApplicationContext(),MainActivity.class));
 						}
-						if(month==(c.get(Calendar.MONTH)+1))
+						if(month==(c.get(Calendar.MONTH)+1)) /*if month less than next sequential month in calendar*/
 						{
-							if(day<=c.get(Calendar.DAY_OF_MONTH))
+							if(day<=c.get(Calendar.DAY_OF_MONTH)) /*if day less than day of the month in calendar*/
 							{
-								if(hours<=c.get(Calendar.HOUR_OF_DAY))
+								if(hours<=c.get(Calendar.HOUR_OF_DAY)) /*if hour less than hour of day in calendar*/
 								{
-									if(mint<=c.get(Calendar.MINUTE))
+									if(mint<=c.get(Calendar.MINUTE)) /*if minute less than minute in calendar*/
 									{
-										db.deleteQueue(cn.getId());
-										statuss=cn.getstutus();
-										new updateTwitterStatus().execute(statuss);											
+										db.deleteQueue(cn.getId()); /*delete queeu if instructed by user*/
+										statuss=cn.getstutus(); /*get status*/
+										new updateTwitterStatus().execute(statuss); /*execute status*/
+                                        /*post queue through twitter permission by access token and access token secret*/
 										Toast.makeText(getActivity().getApplicationContext(), "queue posted complete date", Toast.LENGTH_SHORT).show();
 										MainActivity.accessTokenKey=null;
 										MainActivity.accessTokenKeySecret=null;
@@ -117,17 +119,13 @@ public class Searchthroughfragment extends Fragment {
 
 	class updateTwitterStatus extends AsyncTask<String, String, String> {
 
-		/**Z 	
-		 * Before starting background thread Show Progress Dialog
-		 * */
+		/*Before starting background thread Show Progress Dialog*/
 		@Override
 		protected void onPreExecute() {
 			
 		}
 
-		/**
-		 * getting Places JSON
-		 * */
+		/*getting Places JSON*/
 		protected String doInBackground(String... args) {
 			Log.d("Tweet Text", "> " + args[0]);
 			String status = args[0];
@@ -136,34 +134,32 @@ public class Searchthroughfragment extends Fragment {
 				builder.setOAuthConsumerKey(MainActivity.consumerKey);
 				builder.setOAuthConsumerSecret(MainActivity.consumerSecret);
 				
-				// Access Token 
+				/*Access Token*/
 				String access_token = mSharedPreferences.getString(PREF_KEY_OAUTH_TOKEN, "");
-				// Access Token Secret
+				/*Access Token Secret*/
 				String access_token_secret = mSharedPreferences.getString(PREF_KEY_OAUTH_SECRET, "");
 				
 				AccessToken accessToken = new AccessToken(access_token, access_token_secret);
 				Twitter twitter = new TwitterFactory(builder.build()).getInstance(accessToken);
 				
-				// Update status
+				/*Update status*/
 				twitter4j.Status response = twitter.updateStatus(status);
 				
 				
 				
 				Log.d("Status", "> " + response.getText());
 			} catch (TwitterException e) {
-				// Error in updating status
+				/*Error in updating status*/
 				Log.d("Twitter Update Error", e.getMessage());
 			}
 			return null;
 		}
 
-		/**
-		 * After completing background task Dismiss the progress dialog and show
-		 * the data in UI Always use runOnUiThread(new Runnable()) to update UI
-		 * from background thread, otherwise you will get error
-		 * **/
+		/*After completing background task Dismiss the progress dialog and show
+		 the data in UI Always use runOnUiThread(new Runnable()) to update UI
+		 from background thread, otherwise you will get error*/
 		protected void onPostExecute(String file_url) {
-			// dismiss the dialog after getting all products
+			/*dismiss the dialog after getting all products*/
 			
 			
 			Toast.makeText(getActivity().getApplicationContext(),"Tweet updated Successfully",Toast.LENGTH_SHORT).show();

@@ -1,3 +1,5 @@
+/*Created by: Sairin Sadique and Sarowary Khan*/
+
 package com.qhubb.qhubb;
 
 import android.app.ListActivity;
@@ -97,9 +99,9 @@ public class UserTimeline extends ListActivity {
                 builder.setOAuthConsumerKey(consumerKey);
                 builder.setOAuthConsumerSecret(consumerSecret);
 
-                // Access Token
+                /*Access Token*/
                 String access_token = mSharedPreferences.getString(PREF_KEY_OAUTH_TOKEN, "");
-                // Access Token Secret
+                /*Access Token Secret*/
                 String access_token_secret = mSharedPreferences.getString(PREF_KEY_OAUTH_SECRET, "");
 
                 AccessToken accessToken = new AccessToken(access_token, access_token_secret);

@@ -23,8 +23,8 @@ import twitter4j.auth.AccessToken;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class FollowingActivity extends ListActivity {
-    public JSONParser1 jsonParser;
-    private List<String> listValues;
+    public JSONParser1 jsonParser; /*json parser*/
+    private List<String> listValues; /*list for following*/
     ProgressDialog pDialog;
     private static String url_get_followers = "https://api.twitter.com/1.1/followers/list.json?cursor=-1&screen_name=abrar__ahmad&skip_status=true&include_user_entities=false";
     private static final String TWITTER_KEY = "HcyoJzWDGz5YlhQqtsC966jkd";
@@ -45,11 +45,11 @@ public class FollowingActivity extends ListActivity {
 
 
 
-        listValues = new ArrayList<String>();
-        jsonParser = new JSONParser1();
-        new GetFollowings().execute();
+        listValues = new ArrayList<String>(); /*list of following*/
+        jsonParser = new JSONParser1(); /*json parser*/
+        new GetFollowings().execute(); /*execute get following function*/
         myAdapter = new ArrayAdapter <String>(this,R.layout.row_list_followers, R.id.listText, listValues);
-        // assign the list adapter
+        /*assign the list adapter*/
         mSharedPreferences = getApplicationContext().getSharedPreferences(
                 "MyPref", 0);
         setListAdapter(myAdapter);
@@ -60,19 +60,19 @@ public class FollowingActivity extends ListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        /*Inflate the menu; this adds items to the action bar if it is present*/
         getMenuInflater().inflate(R.menu.menu_following, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        /*Handle action bar item clicks here. The action bar will
+        automatically handle clicks on the Home/Up button, so long
+        as you specify a parent activity in AndroidManifest.xml.*/
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        /*noinspection SimplifiableIfStatement*/
         if (id == R.id.action_settings) {
             return true;
         }
@@ -80,14 +80,10 @@ public class FollowingActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Background Async Task to Get complete product details
-     * */
+    /*Background Async Task to Get complete product details*/
     class GetFollowings extends AsyncTask<String, String, String> {
 
-        /**
-         * Before starting background thread Show Progress Dialog
-         * */
+        /*Before starting background thread Show Progress Dialog*/
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -98,9 +94,7 @@ public class FollowingActivity extends ListActivity {
             pDialog.show();
         }
 
-        /**
-         * Getting product details in background thread
-         * */
+        /*Getting product details in background thread*/
         protected String doInBackground(String... params) {
 
             Log.d("Tweet Text", "> ");
@@ -110,18 +104,17 @@ public class FollowingActivity extends ListActivity {
                 builder.setOAuthConsumerKey(consumerKey);
                 builder.setOAuthConsumerSecret(consumerSecret);
 
-                // Access Token
+                /*Access Token*/
                 String access_token = mSharedPreferences.getString(PREF_KEY_OAUTH_TOKEN, "");
-                // Access Token Secret
+                /*Access Token Secret*/
                 String access_token_secret = mSharedPreferences.getString(PREF_KEY_OAUTH_SECRET, "");
 
                 AccessToken accessToken = new AccessToken(access_token, access_token_secret);
                 Twitter twitter = new TwitterFactory(builder.build()).getInstance(accessToken);
 
 
-                // Update status
+                /*Update status*/
                 IDs response = twitter.getFriendsIDs(-1);
-                //twitter.showUser(234).getName();
                 do {
                     for (long id : response.getIDs()) {
                         String ID = "following ID #" + id;
@@ -135,21 +128,18 @@ public class FollowingActivity extends ListActivity {
                     }
                 } while (response.hasNext());
 
-                Log.d("Status", "> " + response);
+                Log.d("Status", "> " + response); /*get response of update post status*/
             } catch (TwitterException e) {
-                // Error in updating status
+                /*Error in updating status*/
                 Log.d("Twitter Update Error", e.getMessage());
             }
 
             return null;
         }
 
-        /**
-         * After completing background task Dismiss the progress dialog
-         * **/
+        /*After completing background task Dismiss the progress dialog*/
         protected void onPostExecute(String file_url) {
-            // dismiss the dialog once got all details
-            //myAdapter = new ArrayAdapter <String>(this,R.layout.row_list_followers, R.id.listText, listValues);
+            /*dismiss the dialog once got all details*/
             setListAdapter(myAdapter);
             pDialog.dismiss();
 
